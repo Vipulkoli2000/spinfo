@@ -14,13 +14,14 @@ endpoints:
         API for Managing Users
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create User'
+      title: 'Register User'
       description: ''
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer '
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
@@ -30,7 +31,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: svtwewfvge
+        example: p
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -39,7 +40,25 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: karianne44@example.org
+        example: van.padberg@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      mobile:
+        name: mobile
+        description: 'Must match the regex /^\+(?:\d{1}.'
+        required: true
+        example: '+(:9'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      pan:
+        name: pan
+        description: 'Must match the regex /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/.'
+        required: true
+        example: MScSo3314R
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -48,7 +67,7 @@ endpoints:
         name: password
         description: 'Must be at least 6 characters.'
         required: true
-        example: '~T-3:bNGWtWqG%47-|B'
+        example: 'Ru:+^"'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -57,16 +76,18 @@ endpoints:
         name: password_confirmation
         description: ''
         required: true
-        example: sed
+        example: necessitatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: svtwewfvge
-      email: karianne44@example.org
-      password: '~T-3:bNGWtWqG%47-|B'
-      password_confirmation: sed
+      name: p
+      email: van.padberg@example.com
+      mobile: '+(:9'
+      pan: MScSo3314R
+      password: 'Ru:+^"'
+      password_confirmation: necessitatibus
     fileParameters: []
     responses: []
     responseFields: []
@@ -93,6 +114,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer '
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
@@ -102,7 +124,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: fisher.lucio@example.com
+        example: grobel@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -111,14 +133,14 @@ endpoints:
         name: password
         description: 'Must be at least 6 characters.'
         required: true
-        example: 'Mq"^Z>oo*rYm''r.X"g'
+        example: '}w,-glc-l8'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: fisher.lucio@example.com
-      password: 'Mq"^Z>oo*rYm''r.X"g'
+      email: grobel@example.net
+      password: '}w,-glc-l8'
     fileParameters: []
     responses: []
     responseFields: []
@@ -145,6 +167,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer '
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
@@ -177,6 +200,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer '
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
@@ -186,7 +210,7 @@ endpoints:
         name: user_id
         description: 'This is logged in user_id'
         required: true
-        example: 7
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -195,7 +219,7 @@ endpoints:
         name: amount
         description: 'Amount paid by User'
         required: false
-        example: fugit
+        example: sint
         type: decimal
         enumValues: []
         exampleWasSpecified: false
@@ -204,15 +228,15 @@ endpoints:
         name: email
         description: "email User's valid Email"
         required: true
-        example: pkertzmann@example.com
+        example: dicki.rubye@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      user_id: 7
-      amount: fugit
-      email: pkertzmann@example.com
+      user_id: 13
+      amount: sint
+      email: dicki.rubye@example.org
     fileParameters: []
     responses: []
     responseFields: []

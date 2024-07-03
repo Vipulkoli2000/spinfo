@@ -17,11 +17,11 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->unique()->onDelete('cascade');
 
             // profile_no format MMYY000001. Reset every month
-            $table->string('profile_no', 10);
-            $table->string('name');
+            $table->string('profile_no', 10)->nullable();
+            $table->string('name')->nullable();
             $table->integer('parent_id')->nullable();
             $table->integer('ref_id')->nullable();
-            $table->date('registration_date');
+            $table->date('registration_date')->nullable();
             $table->string('mobile', 15)->nullable();
             $table->string('pan', 10)->nullable();
 

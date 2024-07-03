@@ -5,22 +5,123 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/localhost"
+            "value": "http:\/\/localhost:8000"
         }
     ],
     "info": {
         "name": "SP Info API Documentation",
-        "_postman_id": "44125bea-b3e8-41a8-bdc3-f641998d478b",
+        "_postman_id": "ffae1c08-192e-4ca8-9b44-fffa1c4ef053",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
+            "name": "Profile Management",
+            "description": "\nAPI for Managing Profile data",
+            "item": [
+                {
+                    "name": "show Profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/profiles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/profiles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "non",
+                                    "description": "The ID of the profile."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/profiles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/profiles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "voluptate",
+                                    "description": "The ID of the profile."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"yqewrxbbwmhrggykbcssmeii\",\"mobile\":\"+919651392996\",\"pan\":\"ehMjL7666(b\",\"address_1\":\"aoevphbfjaffui\",\"address_2\":\"dceitfbiwxknb\",\"city\":\"yf\",\"state\":\"petckjn\",\"pincode\":\"564s308\",\"bank_name\":\"cewqvfi\",\"account_name\":\"oxmagry\",\"account_no\":\"wxeqaixz\",\"ifsc\":\"GMNY0SFLDH7\",\"business_name\":\"oddt\",\"gstin\":\"zbvywhjkhblj\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
             "name": "User Management",
             "description": "\nAPI for Managing Users",
             "item": [
                 {
-                    "name": "Create User",
+                    "name": "Register User",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -41,7 +142,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"svtwewfvge\",\"email\":\"karianne44@example.org\",\"password\":\"~T-3:bNGWtWqG%47-|B\",\"password_confirmation\":\"sed\"}"
+                            "raw": "{\"name\":\"p\",\"email\":\"van.padberg@example.com\",\"mobile\":\"+(:9\",\"pan\":\"MScSo3314R\",\"password\":\"Ru:+^\\\"\",\"password_confirmation\":\"necessitatibus\"}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +173,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"fisher.lucio@example.com\",\"password\":\"Mq\\\"^Z>oo*rYm'r.X\\\"g\"}"
+                            "raw": "{\"email\":\"grobel@example.net\",\"password\":\"}w,-glc-l8\"}"
                         },
                         "description": "",
                         "auth": {
@@ -131,7 +232,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user_id\":7,\"amount\":\"fugit\",\"email\":\"pkertzmann@example.com\"}"
+                            "raw": "{\"user_id\":13,\"amount\":\"sint\",\"email\":\"dicki.rubye@example.org\"}"
                         },
                         "description": "",
                         "auth": {
@@ -144,6 +245,12 @@
         }
     ],
     "auth": {
-        "type": "noauth"
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "key",
+                "type": "string"
+            }
+        ]
     }
 }

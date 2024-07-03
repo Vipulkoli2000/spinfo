@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Validator;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Http\Request;
@@ -10,6 +11,7 @@ use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
+use App\Services\ProfileNumberService;
 use App\Http\Controllers\Api\BaseController;
 
 /**
@@ -20,15 +22,15 @@ use App\Http\Controllers\Api\BaseController;
 class UserController extends BaseController
 {
     /**
-     * Create User
+     * Register User
      */
     public function register(Request $request): JsonResponse
     {
         $validator = Validator::make($request->all(), [
              'name'=>'required|string|max:255',
              'email'=>['required', 'email:rfc,dns', 'unique:users'],
-             'mobile'=>['required', 'unique:profiles'],
-             'pan'=>['required', 'unique:profiles'],
+             'mobile'=>['required', 'unique:profiles','regex:/^\+(?:\d{1}|\d{3})(?:\x20?\d){5,14}\d$/'],
+             'pan'=>['required','regex:/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/','unique:profiles'], 
              'password'=>'required|string|min:6|confirmed',
              'password_confirmation'=>'required'
         ]);
@@ -48,8 +50,14 @@ class UserController extends BaseController
 
         $profile = new Profile();
         $profile->user_id = $user->id;
+        $profile->name = $input['name'];
         $profile->mobile = $input['mobile'];
         $profile->pan = $input['pan'];
+        $profile->parent_id = null;
+        $profile->ref_id = null;
+        $profile->registration_date = Carbon::now()->format('Y-m-d');
+        $profileNumber = ProfileNumberService::generateProfileNumber();
+        $profile->profile_no = $profileNumber;
         $profile->save();
 
         return $this->sendResponse(['user'=>new UserResource($user), 'profile'=>$profile], 'User register successfully.');
