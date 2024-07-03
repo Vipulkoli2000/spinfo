@@ -30,10 +30,17 @@ class UserController extends BaseController
              'name'=>'required|string|max:255',
              'email'=>['required', 'email:rfc,dns', 'unique:users'],
              'mobile'=>['required', 'unique:profiles','regex:/^\+(?:\d{1}|\d{3})(?:\x20?\d){5,14}\d$/'],
-             'pan'=>['required','regex:/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/','unique:profiles'], 
+             'pan'=>['required','regex:/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/','unique:profiles'],
              'password'=>'required|string|min:6|confirmed',
-             'password_confirmation'=>'required'
+             'password_confirmation'=>'required',
+             'parent'=>'required',
+             'ref'=>'required'
         ]);
+
+        // find id (parent_id) from profiles table where profile_no = parent and expiry_date >= today and expiry_date is not null
+        // find id (ref_id) from profiles table where profile_no = ref and expiry_date >= today and expiry_date is not null
+
+
 
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
@@ -55,8 +62,8 @@ class UserController extends BaseController
         $profile->pan = $input['pan'];
         $profile->parent_id = null;
         $profile->ref_id = null;
-        $profile->registration_date = Carbon::now()->format('Y-m-d');
-        $profileNumber = ProfileNumberService::generateProfileNumber();
+        // $profile->registration_date = Carbon::now()->format('Y-m-d');
+        // $profileNumber = ProfileNumberService::generateProfileNumber();
         $profile->profile_no = $profileNumber;
         $profile->save();
 

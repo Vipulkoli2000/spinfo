@@ -19,7 +19,7 @@ use App\Http\Controllers\Api\BaseController;
 
 class ProfileController extends BaseController
 {
-   
+
      /**
      *  show Profile
      */
@@ -37,13 +37,32 @@ class ProfileController extends BaseController
         return $this->sendResponse(['profile'=>new ProfileResource($profile)], 'Profile retrieved successfully.');
     }
 
-   
+     /**
+     *  show Profile
+     */
+    public function payment(string $id): JsonResponse
+    {
+        // Update profiles table with registration_date, expiry_date (registration_date + 1 year - 1 day) and profile_no
+        //
+        $profile = Profile::find($id);
+
+        if (!$profile) {
+            return $this->sendError('Profile not found.', ['error'=>'Profile not found']);
+        }
+        $user = Auth::user();
+        if($user->id !== $profile->user_id){
+            return $this->sendError('Unauthorized', ['error'=>'You are not allowed to view this profile.']);
+        }
+        return $this->sendResponse(['profile'=>new ProfileResource($profile)], 'Profile retrieved successfully.');
+    }
+
+
      /**
      * Update Profile
      */
     public function update(UpdateProfileRequest $request, string $id): JsonResponse
     {
-        $profile = Profile::find($id); 
+        $profile = Profile::find($id);
         if(!$profile){
             return $this->sendError('Profile Not Found', ['error'=>'Profile not found']);
         }
