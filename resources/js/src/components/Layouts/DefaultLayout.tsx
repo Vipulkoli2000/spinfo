@@ -8,13 +8,16 @@ import Header from './Header';
 import Setting from './Setting';
 import Sidebar from './Sidebar';
 import Portals from '../../components/Portals';
+import { useLocation } from 'react-router-dom';
 
 const DefaultLayout = ({ children }: PropsWithChildren) => {
     const themeConfig = useSelector((state: IRootState) => state.themeConfig);
+
     const dispatch = useDispatch();
 
     const [showLoader, setShowLoader] = useState(true);
     const [showTopButton, setShowTopButton] = useState(false);
+    const [showHeader, setShowHeader] = useState(true);
 
     const goToTop = () => {
         document.body.scrollTop = 0;
@@ -44,6 +47,14 @@ const DefaultLayout = ({ children }: PropsWithChildren) => {
             window.removeEventListener('onscroll', onScrollHandler);
         };
     }, []);
+
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.pathname === '/login' || location.pathname === '/register') {
+            setShowHeader(false);
+        }
+    }, [location]);
 
     return (
         <App>
@@ -81,7 +92,7 @@ const DefaultLayout = ({ children }: PropsWithChildren) => {
 
                     <div className="main-content flex flex-col min-h-screen">
                         {/* BEGIN TOP NAVBAR */}
-                        <Header />
+                        {showHeader && <Header />}
                         {/* END TOP NAVBAR */}
 
                         {/* BEGIN CONTENT AREA */}

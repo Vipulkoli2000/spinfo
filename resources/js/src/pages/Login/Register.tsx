@@ -41,7 +41,7 @@ const RegisterBoaxed = () => {
 
     return (
         <div className="max-h-[100vh] flex justify-center items-center bg-cover bg-center bg-[url('/assets/images/map.svg')] dark:bg-[url('/assets/images/map-dark.svg')]">
-            <div className="flex flex-col items-center justify-center h-full mt-[50px]">
+            <div className="flex flex-col items-center justify-center h-full mt-[120px]">
                 <div className=" panel sm:w-[450px] min-h-[400px] m-6 max-w-lg w-full">
                     <h2 className="font-bold text-2xl mb-3">Sign Up</h2>
                     <p className="mb-7">Enter your email and password to Register</p>
