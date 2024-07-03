@@ -1,0 +1,121 @@
+openapi: 3.0.3
+info:
+  title: 'SP Info API Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/register:
+    post:
+      summary: 'Create User'
+      operationId: createUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: svtwewfvge
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: karianne44@example.org
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: '~T-3:bNGWtWqG%47-|B'
+                password_confirmation:
+                  type: string
+                  description: ''
+                  example: sed
+              required:
+                - name
+                - email
+                - password
+                - password_confirmation
+      security: []
+  /api/login:
+    post:
+      summary: 'Login User'
+      operationId: loginUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: fisher.lucio@example.com
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: 'Mq"^Z>oo*rYm''r.X"g'
+              required:
+                - email
+                - password
+      security: []
+  /api/logout:
+    post:
+      summary: 'Logout User'
+      operationId: logoutUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User Management'
+      security: []
+  /api/update:
+    post:
+      summary: 'Update Profile'
+      operationId: updateProfile
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  description: 'This is logged in user_id'
+                  example: 7
+                amount:
+                  type: decimal
+                  description: 'Amount paid by User'
+                  example: fugit
+                email:
+                  type: string
+                  description: "email User's valid Email"
+                  example: pkertzmann@example.com
+              required:
+                - user_id
+                - email
+      security: []
+tags:
+  -
+    name: 'User Management'
+    description: "\nAPI for Managing Users"
