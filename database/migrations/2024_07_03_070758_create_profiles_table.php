@@ -44,7 +44,6 @@ return new class extends Migration
             $table->string('gstin', 15)->nullable();
             $table->boolean('gstin_verified')->default(false);
 
-
             $table->timestamps();
         });
     }

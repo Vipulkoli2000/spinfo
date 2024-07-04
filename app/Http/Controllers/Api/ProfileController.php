@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use Carbon\Carbon;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Services\ProfileNumberService;
 use App\Http\Resources\ProfileResource;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Controllers\Api\BaseController;
@@ -21,7 +23,7 @@ class ProfileController extends BaseController
 {
 
      /**
-     *  show Profile
+     *  Show Profile
      */
     public function show(string $id): JsonResponse
     {
@@ -38,27 +40,44 @@ class ProfileController extends BaseController
     }
 
      /**
-     *  show Profile
+     *  Show Payment
      */
-    public function payment(string $id): JsonResponse
+    public function payment(string $id, string $payment_id): JsonResponse
     {
         // Update profiles table with registration_date, expiry_date (registration_date + 1 year - 1 day) and profile_no
-        //
+        
         $profile = Profile::find($id);
-
         if (!$profile) {
             return $this->sendError('Profile not found.', ['error'=>'Profile not found']);
-        }
-        $user = Auth::user();
-        if($user->id !== $profile->user_id){
-            return $this->sendError('Unauthorized', ['error'=>'You are not allowed to view this profile.']);
-        }
+         }
+        $profile->registration_date = Carbon::now()->format('Y-m-d');
+        $profile->expiry_date = $profile->expiry_date = Carbon::parse($profile->registration_date)
+        ->addYear()    
+        ->subDay()      
+        ->format('Y-m-d');
+        $profileNumber = ProfileNumberService::generateProfileNumber();
+        $profile->profile_no = $profileNumber;
+
         return $this->sendResponse(['profile'=>new ProfileResource($profile)], 'Profile retrieved successfully.');
     }
 
 
      /**
      * Update Profile
+     * @bodyParam name string The name of the user.
+     * @bodyParam mobile string The mobile number of the user.
+     * @bodyParam pan string The pan number of the user.
+     * @bodyParam address_1 string The address_1 of the user.
+     * @bodyParam address_2 string The address_1 of the user.
+     * @bodyParam city string The city of the user.
+     * @bodyParam state string The state of the user.
+     * @bodyParam pincode string The pincode of the user.
+     * @bodyParam bank_name string The bank name of the user.
+     * @bodyParam account_name string The account name of the user.
+     * @bodyParam account_no string The account number of the user.
+     * @bodyParam ifsc string The ifsc number of the user.
+     * @bodyParam business_name string The business_name of the user.
+     * @bodyParam gstin string The gstin of the user.
      */
     public function update(UpdateProfileRequest $request, string $id): JsonResponse
     {

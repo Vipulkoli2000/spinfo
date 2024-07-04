@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "SP Info API Documentation",
-        "_postman_id": "ffae1c08-192e-4ca8-9b44-fffa1c4ef053",
+        "_postman_id": "c749d0c6-a4cd-46c6-a843-d578e6910813",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,7 +20,7 @@
             "description": "\nAPI for Managing Profile data",
             "item": [
                 {
-                    "name": "show Profile",
+                    "name": "Show Profile",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -31,7 +31,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "non",
+                                    "value": "rerum",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -87,7 +87,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "voluptate",
+                                    "value": "animi",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -105,7 +105,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"yqewrxbbwmhrggykbcssmeii\",\"mobile\":\"+919651392996\",\"pan\":\"ehMjL7666(b\",\"address_1\":\"aoevphbfjaffui\",\"address_2\":\"dceitfbiwxknb\",\"city\":\"yf\",\"state\":\"petckjn\",\"pincode\":\"564s308\",\"bank_name\":\"cewqvfi\",\"account_name\":\"oxmagry\",\"account_no\":\"wxeqaixz\",\"ifsc\":\"GMNY0SFLDH7\",\"business_name\":\"oddt\",\"gstin\":\"zbvywhjkhblj\"}"
+                            "raw": "{\"name\":\"dolorem\",\"mobile\":\"ipsum\",\"pan\":\"quam\",\"address_1\":\"velit\",\"address_2\":\"minima\",\"city\":\"veniam\",\"state\":\"corporis\",\"pincode\":\"quisquam\",\"bank_name\":\"sapiente\",\"account_name\":\"consequatur\",\"account_no\":\"nobis\",\"ifsc\":\"praesentium\",\"business_name\":\"et\",\"gstin\":\"debitis\"}"
                         },
                         "description": "",
                         "auth": {
@@ -142,7 +142,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"p\",\"email\":\"van.padberg@example.com\",\"mobile\":\"+(:9\",\"pan\":\"MScSo3314R\",\"password\":\"Ru:+^\\\"\",\"password_confirmation\":\"necessitatibus\"}"
+                            "raw": "{\"name\":\"amctcqbldsnfeftgdeuidpnio\",\"email\":\"ricardo.kirlin@example.net\",\"mobile\":\"+(:8\",\"pan\":\"bHWXh2797T\",\"password\":\">DM*(k=C_\",\"password_confirmation\":\"qui\",\"parent_id\":\"quia\",\"ref_id\":\"quia\"}"
                         },
                         "description": "",
                         "auth": {
@@ -173,7 +173,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"grobel@example.net\",\"password\":\"}w,-glc-l8\"}"
+                            "raw": "{\"email\":\"igrady@example.net\",\"password\":\",18}^#w\"}"
                         },
                         "description": "",
                         "auth": {
@@ -232,7 +232,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user_id\":13,\"amount\":\"sint\",\"email\":\"dicki.rubye@example.org\"}"
+                            "raw": "{\"user_id\":5,\"amount\":\"amet\",\"email\":\"billy92@example.net\"}"
                         },
                         "description": "",
                         "auth": {

@@ -24,7 +24,7 @@ class UserController extends BaseController
     /**
      * Register User
      */
-    public function register(Request $request): JsonResponse
+    public function register(Request $request, string $p_id, string $r_id): JsonResponse
     {
         $validator = Validator::make($request->all(), [
              'name'=>'required|string|max:255',
@@ -33,14 +33,30 @@ class UserController extends BaseController
              'pan'=>['required','regex:/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/','unique:profiles'],
              'password'=>'required|string|min:6|confirmed',
              'password_confirmation'=>'required',
-             'parent'=>'required',
-             'ref'=>'required'
+             'parent_id'=>'required',
+             'ref_id'=>'required'
         ]);
 
+        $currentDate = Carbon::now()->format('Y-m-d');
+        $parent_id = Profile::where('profile_no', $p_id)
+                    ->where('expiry_date', '>', $currentDate)
+                    ->pluck('profile_no')
+                    ->first();
+
+        if(!$parent_id){
+            return $this->sendError('Not Found.', ['error'=>'Parent Id Not Found.']);
+        }
+
+        $ref_id = Profile::where('profile_no', $r_id)
+                    ->where('expiry_date', '>', $currentDate)
+                    ->pluck('profile_no')
+                    ->first();
+
+        if(!$ref_id){
+            return $this->sendError('Not Found.', ['error'=>'Reference Id Not Found']);
+        }
         // find id (parent_id) from profiles table where profile_no = parent and expiry_date >= today and expiry_date is not null
         // find id (ref_id) from profiles table where profile_no = ref and expiry_date >= today and expiry_date is not null
-
-
 
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
@@ -60,11 +76,11 @@ class UserController extends BaseController
         $profile->name = $input['name'];
         $profile->mobile = $input['mobile'];
         $profile->pan = $input['pan'];
-        $profile->parent_id = null;
-        $profile->ref_id = null;
+        $profile->parent_id = $parent_id;
+        $profile->ref_id = $ref_id;
         // $profile->registration_date = Carbon::now()->format('Y-m-d');
         // $profileNumber = ProfileNumberService::generateProfileNumber();
-        $profile->profile_no = $profileNumber;
+        //$profile->profile_no = $profileNumber;
         $profile->save();
 
         return $this->sendResponse(['user'=>new UserResource($user), 'profile'=>$profile], 'User register successfully.');

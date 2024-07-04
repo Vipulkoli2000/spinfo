@@ -16,7 +16,7 @@ endpoints:
         API for Managing Profile data
       subgroup: ''
       subgroupDescription: ''
-      title: 'show Profile'
+      title: 'Show Profile'
       description: ''
       authenticated: false
       custom: []
@@ -29,13 +29,13 @@ endpoints:
         name: id
         description: 'The ID of the profile.'
         required: true
-        example: non
+        example: rerum
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: non
+      id: rerum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -82,157 +82,157 @@ endpoints:
         name: id
         description: 'The ID of the profile.'
         required: true
-        example: voluptate
+        example: animi
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: voluptate
+      id: animi
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       name:
         name: name
-        description: 'Must not be greater than 100 characters.'
-        required: true
-        example: yqewrxbbwmhrggykbcssmeii
+        description: 'The name of the user.'
+        required: false
+        example: dolorem
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
       mobile:
         name: mobile
-        description: 'Must match the regex /^\+91[1-9][0-9]{9}$/.'
-        required: true
-        example: '+919651392996'
+        description: 'The mobile number of the user.'
+        required: false
+        example: ipsum
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
       pan:
         name: pan
-        description: 'Must match the regex /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/.'
-        required: true
-        example: ehMjL7666(b
+        description: 'The pan number of the user.'
+        required: false
+        example: quam
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
       address_1:
         name: address_1
-        description: 'Must not be greater than 100 characters.'
+        description: 'The address_1 of the user.'
         required: false
-        example: aoevphbfjaffui
+        example: velit
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
       address_2:
         name: address_2
-        description: 'Must not be greater than 100 characters.'
+        description: 'The address_1 of the user.'
         required: false
-        example: dceitfbiwxknb
+        example: minima
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
       city:
         name: city
-        description: 'Must not be greater than 100 characters.'
+        description: 'The city of the user.'
         required: false
-        example: yf
+        example: veniam
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
       state:
         name: state
-        description: 'Must not be greater than 100 characters.'
+        description: 'The state of the user.'
         required: false
-        example: petckjn
+        example: corporis
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
       pincode:
         name: pincode
-        description: 'Must match the regex /^[1-9][0-9]{2}\s{0,1}[0-9]{3}$/.'
-        required: true
-        example: 564s308
+        description: 'The pincode of the user.'
+        required: false
+        example: quisquam
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
       bank_name:
         name: bank_name
-        description: 'Must not be greater than 100 characters.'
+        description: 'The bank name of the user.'
         required: false
-        example: cewqvfi
+        example: sapiente
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
       account_name:
         name: account_name
-        description: 'Must not be greater than 100 characters.'
+        description: 'The account name of the user.'
         required: false
-        example: oxmagry
+        example: consequatur
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
       account_no:
         name: account_no
-        description: 'Must not be greater than 20 characters.'
+        description: 'The account number of the user.'
         required: false
-        example: wxeqaixz
+        example: nobis
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
       ifsc:
         name: ifsc
-        description: 'Must match the regex /^[A-Z]{4}0[A-Z0-9]{6}$/.'
-        required: true
-        example: GMNY0SFLDH7
+        description: 'The ifsc number of the user.'
+        required: false
+        example: praesentium
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
       business_name:
         name: business_name
-        description: 'Must not be greater than 100 characters.'
+        description: 'The business_name of the user.'
         required: false
-        example: oddt
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
       gstin:
         name: gstin
-        description: 'Must not be greater than 15 characters.'
+        description: 'The gstin of the user.'
         required: false
-        example: zbvywhjkhblj
+        example: debitis
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: yqewrxbbwmhrggykbcssmeii
-      mobile: '+919651392996'
-      pan: ehMjL7666(b
-      address_1: aoevphbfjaffui
-      address_2: dceitfbiwxknb
-      city: yf
-      state: petckjn
-      pincode: 564s308
-      bank_name: cewqvfi
-      account_name: oxmagry
-      account_no: wxeqaixz
-      ifsc: GMNY0SFLDH7
-      business_name: oddt
-      gstin: zbvywhjkhblj
+      name: dolorem
+      mobile: ipsum
+      pan: quam
+      address_1: velit
+      address_2: minima
+      city: veniam
+      state: corporis
+      pincode: quisquam
+      bank_name: sapiente
+      account_name: consequatur
+      account_no: nobis
+      ifsc: praesentium
+      business_name: et
+      gstin: debitis
     fileParameters: []
     responses: []
     responseFields: []

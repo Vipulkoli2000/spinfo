@@ -33,7 +33,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: p
+        example: amctcqbldsnfeftgdeuidpnio
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -42,7 +42,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: van.padberg@example.com
+        example: ricardo.kirlin@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -51,7 +51,7 @@ endpoints:
         name: mobile
         description: 'Must match the regex /^\+(?:\d{1}.'
         required: true
-        example: '+(:9'
+        example: '+(:8'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -60,7 +60,7 @@ endpoints:
         name: pan
         description: 'Must match the regex /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/.'
         required: true
-        example: MScSo3314R
+        example: bHWXh2797T
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -69,7 +69,7 @@ endpoints:
         name: password
         description: 'Must be at least 6 characters.'
         required: true
-        example: 'Ru:+^"'
+        example: '>DM*(k=C_'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -78,18 +78,38 @@ endpoints:
         name: password_confirmation
         description: ''
         required: true
-        example: necessitatibus
+        example: qui
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: ''
+        required: true
+        example: quia
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      ref_id:
+        name: ref_id
+        description: ''
+        required: true
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: p
-      email: van.padberg@example.com
-      mobile: '+(:9'
-      pan: MScSo3314R
-      password: 'Ru:+^"'
-      password_confirmation: necessitatibus
+      name: amctcqbldsnfeftgdeuidpnio
+      email: ricardo.kirlin@example.net
+      mobile: '+(:8'
+      pan: bHWXh2797T
+      password: '>DM*(k=C_'
+      password_confirmation: qui
+      parent_id: quia
+      ref_id: quia
     fileParameters: []
     responses: []
     responseFields: []
@@ -126,7 +146,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: grobel@example.net
+        example: igrady@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -135,14 +155,14 @@ endpoints:
         name: password
         description: 'Must be at least 6 characters.'
         required: true
-        example: '}w,-glc-l8'
+        example: ',18}^#w'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: grobel@example.net
-      password: '}w,-glc-l8'
+      email: igrady@example.net
+      password: ',18}^#w'
     fileParameters: []
     responses: []
     responseFields: []
@@ -212,7 +232,7 @@ endpoints:
         name: user_id
         description: 'This is logged in user_id'
         required: true
-        example: 13
+        example: 5
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -221,7 +241,7 @@ endpoints:
         name: amount
         description: 'Amount paid by User'
         required: false
-        example: sint
+        example: amet
         type: decimal
         enumValues: []
         exampleWasSpecified: false
@@ -230,15 +250,15 @@ endpoints:
         name: email
         description: "email User's valid Email"
         required: true
-        example: dicki.rubye@example.org
+        example: billy92@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      user_id: 13
-      amount: sint
-      email: dicki.rubye@example.org
+      user_id: 5
+      amount: amet
+      email: billy92@example.net
     fileParameters: []
     responses: []
     responseFields: []
