@@ -22,12 +22,13 @@ use App\Http\Controllers\Api\ProfileController;
 // });
 
 
-    Route::post('/register', [UserController::class, 'register']);
+    Route::post('/register/{parent_id}/{ref_id}', [UserController::class, 'register']);
     Route::post('/login', [UserController::class, 'login']);
     Route::post('/logout', [UserController::class, 'logout']);
     Route::post('/update', [UserController::class, 'update']);
 
 Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::resource('profiles', ProfileController::class);
+    Route::post('payment/{id}/{payment_id}', [ProfileController::class, 'payment']);
 });
 
