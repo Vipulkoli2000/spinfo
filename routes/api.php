@@ -29,6 +29,6 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/logout', [UserController::class, 'logout']);
 
     Route::resource('profiles', ProfileController::class);
-    Route::post('payment/{profile_id}', [ProfileController::class, 'payment']);  //this must be get
+    Route::get('payment/{profile_id}', [ProfileController::class, 'payment']);  //this must be get
 });
 
