@@ -42,21 +42,31 @@ class ProfileController extends BaseController
      /**
      *  Show Payment
      */
-    public function payment(string $id, string $payment_id): JsonResponse
+    public function payment(string $id): JsonResponse
     {
         // Update profiles table with registration_date, expiry_date (registration_date + 1 year - 1 day) and profile_no
-        
+
         $profile = Profile::find($id);
         if (!$profile) {
             return $this->sendError('Profile not found.', ['error'=>'Profile not found']);
          }
         $profile->registration_date = Carbon::now()->format('Y-m-d');
-        $profile->expiry_date = $profile->expiry_date = Carbon::parse($profile->registration_date)
-        ->addYear()    
-        ->subDay()      
-        ->format('Y-m-d');
+        $profile->expiry_date = Carbon::parse($profile->registration_date)
+            ->addYear()
+            ->subDay()
+            ->format('Y-m-d');
         $profileNumber = ProfileNumberService::generateProfileNumber();
         $profile->profile_no = $profileNumber;
+
+        //Update direct_count + 1 where profiles.id = $profile->ref_id
+
+        /*
+        for($i = 1; $i <= 8; $i++) {
+            $parentProfile = Profile::where($id, $parent_id);
+        }
+        */
+
+        // find level_2 profile (select * from profiles where id = )
 
         return $this->sendResponse(['profile'=>new ProfileResource($profile)], 'Profile retrieved successfully.');
     }
