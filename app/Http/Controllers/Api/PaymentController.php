@@ -92,9 +92,16 @@ class PaymentController extends BaseController
             $parentProfile8 = Profile::find($parentProfile7->parent_id);
             $parentProfile8->level_8 = $parentProfile8->level_8 + 1;
             $parentProfile8->save();
-        }         
+        }
 
-        // find level_2 profile (select * from profiles where id = )
+        /**
+         * Add wallet_balance decimal (12,2) default 0 field in profiles table at the end
+         * Add transactions table id, profile_id, t_date, deposite, withdrawal columns
+         * Add Rs. 100 entry in transactions table
+         * create updateWalletBalance function in Profile.php
+         * In seed add Admin User with admin role and top@spinfo with profile with member role
+         * While registerting user is always a member
+         */
 
         return $this->sendResponse(['profile'=>new ProfileResource($profile)], 'Profile retrieved successfully.');
     }
