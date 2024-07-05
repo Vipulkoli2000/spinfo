@@ -39,57 +39,6 @@ class ProfileController extends BaseController
         return $this->sendResponse(['profile'=>new ProfileResource($profile)], 'Profile retrieved successfully.');
     }
 
-     /**
-     *  Show Payment
-     */
-    public function payment(string $id): JsonResponse
-    {
-        // Update profiles table with registration_date, expiry_date (registration_date + 1 year - 1 day) and profile_no
-
-        $profile = Profile::find($id);
-        if (!$profile) {
-            return $this->sendError('Profile not found.', ['error'=>'Profile not found']);
-         }
-        $profile->registration_date = Carbon::now()->format('Y-m-d');
-        $profile->expiry_date = Carbon::parse($profile->registration_date)
-            ->addYear()
-            ->subDay()
-            ->format('Y-m-d');
-
-        $profile->profile_no = ProfileNumberService::generateProfileNumber();
-
-        $refProfile = Profile::find($profile->ref_id);
-        $refProfile->direct_count = $refProfile->direct_count + 1;
-
-        $parentProfile1 = Profile::find($profile->parent_id);
-        $parentProfile1->level_1 = $parentProfile1->level_1 + 1;
-
-        $parentProfile2 = Profile::find($parentProfile1->parent_id);
-        $parentProfile2->level_2 = $parentProfile2->level_2 + 1;
-
-        $parentProfile3 = Profile::find($parentProfile2->parent_id);
-        $parentProfile3->level_3 = $parentProfile3->level_3 + 1;
-
-        $parentProfile4 = Profile::find($parentProfile3->parent_id);
-        $parentProfile4->level_4 = $parentProfile4->level_4 + 1;
-
-        $parentProfile5 = Profile::find($parentProfile4->parent_id);
-        $parentProfile5->level_5 = $parentProfile5->level_5 + 1;
-
-        $parentProfile6 = Profile::find($parentProfile5->parent_id);
-        $parentProfile6->level_6 = $parentProfile6->level_6 + 1;
-
-        $parentProfile7 = Profile::find($parentProfile6->parent_id);
-        $parentProfile7->level_7 = $parentProfile7->level_7 + 1;
-
-        $parentProfile8 = Profile::find($parentProfile7->parent_id);
-        $parentProfile8->level_8 = $parentProfile8->level_8 + 1;
-
-        // find level_2 profile (select * from profiles where id = )
-
-        return $this->sendResponse(['profile'=>new ProfileResource($profile)], 'Profile retrieved successfully.');
-    }
-
 
      /**
      * Update Profile

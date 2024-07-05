@@ -107,17 +107,6 @@ class UserController extends BaseController
         }
     }
 
-    /**
-     * Update Profile
-     * @bodyParam user_id int required This is logged in user_id
-     * @bodyParam amount decimal Amount paid by User
-     * @bodyParam email string required email User's valid Email
-     */
-    public function update(): JsonResponse
-    {
-
-    }
-
      /**
      * Logout User
      */

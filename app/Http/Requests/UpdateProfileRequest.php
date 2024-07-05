@@ -24,20 +24,20 @@ class UpdateProfileRequest extends FormRequest
     public function rules(): array 
     {
         return [
-            'name'=>['required','string','max:100'],
-            'mobile'=>['required', 'unique:profiles','regex:/^\+91[1-9][0-9]{9}$/'],
-            'pan'=>['required','regex:/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/','unique:profiles'], 
-            'address_1' => ['max:100','string'],
-            'address_2' => ['max:100', 'string'],
-            'city'=> ['string', 'max:100'],
-            'state'=>['string','max:100'],
-            'pincode' => ['required', 'regex:/^[1-9][0-9]{2}\s{0,1}[0-9]{3}$/'],
-            'bank_name' => ['string','max:100'],
-            'account_name'=>['string', 'max:100'],
-            'account_no' => ['string', 'max:20'],
-            'ifsc' => ['required', 'regex:/^[A-Z]{4}0[A-Z0-9]{6}$/'],
-            'business_name' => ['string', 'max:100'],
-            'gstin' => ['string', 'max:15'],
+            // 'name'=>['required','string','max:100'],
+            // 'mobile'=>['required', 'unique:profiles','regex:/^\+91[1-9][0-9]{9}$/'],
+            // 'pan'=>['required','regex:/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/','unique:profiles'], 
+            // 'address_1' => ['max:100','string'],
+            // 'address_2' => ['max:100', 'string'],
+            // 'city'=> ['string', 'max:100'],
+            // 'state'=>['string','max:100'],
+            // 'pincode' => ['required', 'regex:/^[1-9][0-9]{2}\s{0,1}[0-9]{3}$/'],
+            // 'bank_name' => ['string','max:100'],
+            // 'account_name'=>['string', 'max:100'],
+            // 'account_no' => ['string', 'max:20'],
+            // 'ifsc' => ['required', 'regex:/^[A-Z]{4}0[A-Z0-9]{6}$/'],
+            // 'business_name' => ['string', 'max:100'],
+            // 'gstin' => ['string', 'max:15'],
         ];
     }
 
