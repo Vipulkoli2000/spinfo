@@ -48,6 +48,7 @@ class ProfileResource extends JsonResource
             'level_6' => $this->level_6,
             'level_7' => $this->level_7,
             'level_8' => $this->level_8,
+            'wallet_balance' => $this->wallet_balance,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

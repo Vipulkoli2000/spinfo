@@ -6,6 +6,8 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Database\Seeder;
+use Database\Seeders\RolesSeeder;
+use Database\Seeders\UsersSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,8 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(1)->create();
-        Profile::factory(1)->create();
+        $this->call(RolesSeeder::class);
+        $this->call(UsersSeeder::class);
+        //User::factory(1)->create();
+        //Profile::factory(1)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

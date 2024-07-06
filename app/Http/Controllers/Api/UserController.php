@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
@@ -39,6 +40,7 @@ class UserController extends BaseController
 
         $parent_id = Profile::where('profile_no', $request->parent_id)
                     ->where('expiry_date', '>=', date('Y-m-d'))
+                    ->where('level_1', '<', 10)
                     ->pluck('id')
                     ->first();
 
@@ -69,6 +71,9 @@ class UserController extends BaseController
         $user->email = $input['email'];
         $user->password = $input['password'];
         $user->save();
+
+        $memberRole = Role::where('name', 'member')->first();
+        $user->assignRole($memberRole);
 
         $profile = new Profile();
         $profile->user_id = $user->id;
