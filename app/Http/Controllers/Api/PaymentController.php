@@ -50,12 +50,17 @@ class PaymentController extends BaseController
             $parentProfile1 = Profile::find($parentId);
             $parentProfile1->level_1 = $parentProfile1->level_1 + 1;
             $parentProfile1->save();
-                
+
+            Transaction::insertDeposit($parentId, 100);
+
+            // $transaction = new Transaction();
+            // $transaction->insertDeposite($parentId, 100);
+
             //$transaction = Transaction::find($parentProfile1->transaction->id);
             if($parentProfile1->transaction){
               $parentProfile1->transaction->deposite += 100;
               $parentProfile1->transaction->transaction_date = date("Y-m-d");
-              $parentProfile1->transaction->save(); 
+              $parentProfile1->transaction->save();
             }
             else{
                 $newTransaction = new Transaction();
@@ -76,7 +81,7 @@ class PaymentController extends BaseController
             if($parentProfile2->transaction){
                 $parentProfile2->transaction->deposite += 100;
                 $parentProfile2->transaction->transaction_date = date("Y-m-d");
-                $parentProfile2->transaction->save(); 
+                $parentProfile2->transaction->save();
               }
             else{
                 $newTransaction = new Transaction();
@@ -97,7 +102,7 @@ class PaymentController extends BaseController
             if($parentProfile3->transaction){
                 $parentProfile3->transaction->deposite += 100;
                 $parentProfile3->transaction->transaction_date = date("Y-m-d");
-                $parentProfile3->transaction->save(); 
+                $parentProfile3->transaction->save();
               }
             else{
                 $newTransaction = new Transaction();
@@ -118,7 +123,7 @@ class PaymentController extends BaseController
             if($parentProfile4->transaction){
                 $parentProfile4->transaction->deposite += 100;
                 $parentProfile4->transaction->transaction_date = date("Y-m-d");
-                $parentProfile4->transaction->save(); 
+                $parentProfile4->transaction->save();
               }
             else{
                 $newTransaction = new Transaction();
@@ -139,7 +144,7 @@ class PaymentController extends BaseController
             if($parentProfile5->transaction){
                 $parentProfile5->transaction->deposite += 100;
                 $parentProfile5->transaction->transaction_date = date("Y-m-d");
-                $parentProfile5->transaction->save(); 
+                $parentProfile5->transaction->save();
               }
             else{
                 $newTransaction = new Transaction();
@@ -160,7 +165,7 @@ class PaymentController extends BaseController
             if($parentProfile6->transaction){
                 $parentProfile6->transaction->deposite += 100;
                 $parentProfile6->transaction->transaction_date = date("Y-m-d");
-                $parentProfile6->transaction->save(); 
+                $parentProfile6->transaction->save();
               }
             else{
                 $newTransaction = new Transaction();
@@ -181,7 +186,7 @@ class PaymentController extends BaseController
             if($parentProfile7->transaction){
                 $parentProfile7->transaction->deposite += 100;
                 $parentProfile7->transaction->transaction_date = date("Y-m-d");
-                $parentProfile7->transaction->save(); 
+                $parentProfile7->transaction->save();
               }
             else{
                 $newTransaction = new Transaction();
@@ -202,7 +207,7 @@ class PaymentController extends BaseController
             if($parentProfile8->transaction){
                 $parentProfile8->transaction->deposite += 100;
                 $parentProfile8->transaction->transaction_date = date("Y-m-d");
-                $parentProfile8->transaction->save(); 
+                $parentProfile8->transaction->save();
               }
             else{
                 $newTransaction = new Transaction();
@@ -218,11 +223,11 @@ class PaymentController extends BaseController
          * Add wallet_balance decimal (12,2) default 0 field in profiles table at the end done
          * Add transactions table id, profile_id, t_date, deposite, withdrawal columns  done
          * Add Rs. 100 entry in transactions table done
-         * create updateWalletBalance function in Profile.php 
+         * create updateWalletBalance function in Profile.php
          * In seed add Admin User with admin role and top@spinfo with profile with member role
          * While registerting user is always a member
          */
-         
+
         return $this->sendResponse(['profile'=>new ProfileResource($profile)], 'Profile retrieved successfully.');
     }
 
@@ -237,8 +242,8 @@ class PaymentController extends BaseController
         }
 
         $balance = Transaction::where('profile_id', $profile_id)
-        ->sum('deposite') - Transaction::where('profile_id', $profile_id)
-        ->sum('withdrawal');
+            ->sum('deposite') - Transaction::where('profile_id', $profile_id)
+            ->sum('withdrawal');
 
          $profile->wallet_balance = $balance;
          $profile->save();
