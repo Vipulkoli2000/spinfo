@@ -6,6 +6,7 @@ import { toggleRTL, toggleTheme, toggleSidebar } from '../../store/themeConfigSl
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import Dropdown from '../Dropdown';
+import axios from 'axios';
 
 const Header = () => {
     const location = useLocation();
@@ -111,6 +112,20 @@ const Header = () => {
     const [flag, setFlag] = useState(themeConfig.locale);
 
     const { t } = useTranslation();
+    const User = JSON.parse(localStorage.getItem('user') as string);
+    const callapi = async () => {
+        try {
+            const response = await axios.get(`/api/payment/${User.profile.id}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + localStorage.getItem('token'),
+                },
+            });
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <header className={`z-40 ${themeConfig.semidark && themeConfig.menu === 'horizontal' ? 'dark' : ''}`}>
@@ -148,6 +163,11 @@ const Header = () => {
                                     <circle cx="11.5" cy="11.5" r="9.5" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
                                     <path d="M18.5 18.5L22 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                                 </svg>
+                            </button>
+                        </div>
+                        <div className="dropdown shrink-0 flex">
+                            <button type="button" className="btn btn-primary btn-sm ml-auto" onClick={callapi}>
+                                Make payment
                             </button>
                         </div>
 

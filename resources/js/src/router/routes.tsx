@@ -4,6 +4,7 @@ const Index = lazy(() => import('../pages/Index'));
 const ToDo = lazy(() => import('../pages/ToDo/Index'));
 const LoginBoxed = lazy(() => import('../pages/Login/Login'));
 const Register = lazy(() => import('../pages/Login/Register'));
+const UpdateProfile = lazy(() => import('../pages/Profile/UpdateProfile'));
 
 const routes = [
     // dashboard
@@ -25,6 +26,11 @@ const routes = [
     {
         path: '/register',
         element: <Register />,
+        layout: 'default',
+    },
+    {
+        path: 'users/profile',
+        element: <UpdateProfile />,
         layout: 'default',
     },
 ];

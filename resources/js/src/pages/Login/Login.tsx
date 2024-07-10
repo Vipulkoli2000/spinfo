@@ -6,11 +6,12 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { IRootState } from '../../store';
 import { setPageTitle } from '../../store/themeConfigSlice';
+import axios from 'axios';
 
 // Define the validation schema using Zod
 const loginSchema = z.object({
-    email: z.string().email('Invalid email address'),
-    password: z.string().min(1, 'Password is required'),
+    email: z.string().email('Invalid email address').min(1, 'Email is required'),
+    password: z.string().min(6, 'Password is required'),
 });
 
 type LoginFormInputs = z.infer<typeof loginSchema>;
@@ -31,11 +32,20 @@ const LoginBoxed = () => {
     } = useForm<LoginFormInputs>({
         resolver: zodResolver(loginSchema),
     });
+    const CallApi = async (data: LoginFormInputs) => {
+        const response = await axios.post('http://localhost:8000/api/login', data);
+        console.log(response);
+        if (response.data) {
+            localStorage.setItem('user', JSON.stringify(response.data.data.user));
+            localStorage.setItem('token', response.data.data.token);
+        }
+        navigate('/');
+    };
 
     const onSubmit = (data: LoginFormInputs) => {
         // You can handle the form submission here, for example:
         console.log(data);
-        navigate('/');
+        CallApi(data);
     };
 
     return (
