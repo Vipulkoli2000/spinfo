@@ -32,7 +32,7 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     //Route::get('payment/{profile_id}', [PaymentController::class, 'payment']);  //this must be get
 });
 
-Route::group(['middleware'=>['auth:sanctum', 'role:member']], function(){
+//Route::group(['middleware'=>['auth:sanctum', 'role:member']], function(){
     Route::get('payment/{profile_id}', [PaymentController::class, 'payment']);  //this must be get
-});
+//});
 
