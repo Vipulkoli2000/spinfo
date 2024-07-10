@@ -41,11 +41,11 @@ class UsersSeeder extends Seeder
             ->format('Y-m-d'),
         ]);
 
-        $adminRole = Role::where('name', 'admin')->first();
-        $admin->assignRole($adminRole);
+      //  $adminRole = Role::where('name', 'admin')->first();
+       // $admin->assignRole($adminRole);
 
         // Assign member role to the member user
-        $memberRole = Role::where('name', 'member')->first();
-        $user->assignRole($memberRole);
+       // $memberRole = Role::where('name', 'member')->first();
+       // $user->assignRole($memberRole);
     }
 }
