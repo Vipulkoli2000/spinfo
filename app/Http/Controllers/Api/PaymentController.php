@@ -32,10 +32,10 @@ class PaymentController extends BaseController
             return $this->sendError('Profile not found.', ['error'=>'Profile not found']);
          }
 
-         $user = Auth::user();
-         if($user->profile->id !== $profile->id){
-            return $this->sendError('Unauthorized', ['error'=>'You are not allowed to Pay']);
-          }
+        //  $user = Auth::user();
+        //  if($user || $user->profile->id !== $profile->id){
+        //     return $this->sendError('Unauthorized', ['error'=>'You are not allowed to Pay']);
+        //   }
         $profile->registration_date = Carbon::now()->format('Y-m-d');
         $profile->expiry_date = Carbon::parse($profile->registration_date)
             ->addYear()
