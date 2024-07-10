@@ -27,13 +27,13 @@ endpoints:
         name: id
         description: 'The ID of the profile.'
         required: true
-        example: rerum
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: rerum
+      id: voluptatem
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -80,13 +80,13 @@ endpoints:
         name: id
         description: 'The ID of the profile.'
         required: true
-        example: animi
+        example: ratione
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: animi
+      id: ratione
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -94,7 +94,7 @@ endpoints:
         name: name
         description: 'The name of the user.'
         required: false
-        example: dolorem
+        example: iure
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -103,7 +103,7 @@ endpoints:
         name: mobile
         description: 'The mobile number of the user.'
         required: false
-        example: ipsum
+        example: eaque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -112,7 +112,7 @@ endpoints:
         name: pan
         description: 'The pan number of the user.'
         required: false
-        example: quam
+        example: ipsa
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -121,7 +121,7 @@ endpoints:
         name: address_1
         description: 'The address_1 of the user.'
         required: false
-        example: velit
+        example: quis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -130,7 +130,7 @@ endpoints:
         name: address_2
         description: 'The address_1 of the user.'
         required: false
-        example: minima
+        example: eius
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -139,7 +139,7 @@ endpoints:
         name: city
         description: 'The city of the user.'
         required: false
-        example: veniam
+        example: officiis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -148,7 +148,7 @@ endpoints:
         name: state
         description: 'The state of the user.'
         required: false
-        example: corporis
+        example: ipsum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -157,7 +157,7 @@ endpoints:
         name: pincode
         description: 'The pincode of the user.'
         required: false
-        example: quisquam
+        example: atque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -166,7 +166,7 @@ endpoints:
         name: bank_name
         description: 'The bank name of the user.'
         required: false
-        example: sapiente
+        example: soluta
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -175,7 +175,7 @@ endpoints:
         name: account_name
         description: 'The account name of the user.'
         required: false
-        example: consequatur
+        example: corporis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -184,7 +184,7 @@ endpoints:
         name: account_no
         description: 'The account number of the user.'
         required: false
-        example: nobis
+        example: quos
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -193,7 +193,7 @@ endpoints:
         name: ifsc
         description: 'The ifsc number of the user.'
         required: false
-        example: praesentium
+        example: eveniet
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -202,7 +202,7 @@ endpoints:
         name: business_name
         description: 'The business_name of the user.'
         required: false
-        example: et
+        example: aliquam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -211,26 +211,26 @@ endpoints:
         name: gstin
         description: 'The gstin of the user.'
         required: false
-        example: debitis
+        example: dolor
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: dolorem
-      mobile: ipsum
-      pan: quam
-      address_1: velit
-      address_2: minima
-      city: veniam
-      state: corporis
-      pincode: quisquam
-      bank_name: sapiente
-      account_name: consequatur
-      account_no: nobis
-      ifsc: praesentium
-      business_name: et
-      gstin: debitis
+      name: iure
+      mobile: eaque
+      pan: ipsa
+      address_1: quis
+      address_2: eius
+      city: officiis
+      state: ipsum
+      pincode: atque
+      bank_name: soluta
+      account_name: corporis
+      account_no: quos
+      ifsc: eveniet
+      business_name: aliquam
+      gstin: dolor
     fileParameters: []
     responses: []
     responseFields: []

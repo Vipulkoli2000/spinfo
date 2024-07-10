@@ -33,6 +33,7 @@ class UsersSeeder extends Seeder
         $memberUser = Profile::create([
             'profile_no' => ProfileNumberService::generateProfileNumber(),
             'user_id' => 2,
+            'name'=>'Ganesh',
             'registration_date' => Carbon::now()->format('Y-m-d'),
             'expiry_date' => Carbon::parse(Carbon::now()->format('Y-m-d'))
             ->addYear()

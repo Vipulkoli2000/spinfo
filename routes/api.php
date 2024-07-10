@@ -29,6 +29,10 @@ Route::post('/login', [UserController::class, 'login']);
 Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/logout', [UserController::class, 'logout']);
     Route::resource('profiles', ProfileController::class);
+    //Route::get('payment/{profile_id}', [PaymentController::class, 'payment']);  //this must be get
+});
+
+Route::group(['middleware'=>['auth:sanctum', 'role:member']], function(){
     Route::get('payment/{profile_id}', [PaymentController::class, 'payment']);  //this must be get
 });
 

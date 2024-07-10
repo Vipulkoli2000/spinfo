@@ -60,35 +60,44 @@ class ProfileController extends BaseController
     public function update(UpdateProfileRequest $request, string $id): JsonResponse
     {
         $profile = Profile::find($id);
-        if(!$profile){
-            return $this->sendError('Profile Not Found', ['error'=>'Profile not found']);
+      //  $user = User::find(3);
+     //   if ($user->hasPermissionTo('update profile')) {
+            // User can edit posts
+            
+            if(!$profile){
+                return $this->sendError('Profile Not Found', ['error'=>'Profile not found']);
+            }
+            $user = Auth::user();
+            if($user->id !== $profile->user_id){
+                return $this->sendError('Unauthorized', ['error'=>'You are not allowed to update this profile.']);
+            }
+    
+            $profile->name = $request->input('name');
+            $profile->mobile = $request->input('mobile');
+            $profile->pan = $request->input('pan');
+            $profile->parent_id = $request->input('parent_id');
+            $profile->ref_id = $request->input('ref_id');
+            $profile->registration_date = $request->input('registration_date');
+            $profile->address_1 = $request->input('address_1');
+            $profile->address_2 = $request->input('address_2');
+            $profile->city = $request->input('city');
+            $profile->state = $request->input('state');
+            $profile->pincode = $request->input('pincode');
+            $profile->bank_name = $request->input('bank_name');
+            $profile->account_name = $request->input('account_name');
+            $profile->account_no = $request->input('account_no');
+            $profile->ifsc = $request->input('ifsc');
+            $profile->business_name = $request->input('business_name');
+            $profile->gstin = $request->input('gstin');
+            $profile->save();
+    
+            return $this->sendResponse(['Profile'=>new ProfileResource($profile)], 'Profile updated successfully.');
+    
         }
-        $user = Auth::user();
-        if($user->id !== $profile->user_id){
-            return $this->sendError('Unauthorized', ['error'=>'You are not allowed to update this profile.']);
-        }
 
-        $profile->name = $request->input('name');
-        $profile->mobile = $request->input('mobile');
-        $profile->pan = $request->input('pan');
-        $profile->parent_id = $request->input('parent_id');
-        $profile->ref_id = $request->input('ref_id');
-        $profile->registration_date = $request->input('registration_date');
-        $profile->address_1 = $request->input('address_1');
-        $profile->address_2 = $request->input('address_2');
-        $profile->city = $request->input('city');
-        $profile->state = $request->input('state');
-        $profile->pincode = $request->input('pincode');
-        $profile->bank_name = $request->input('bank_name');
-        $profile->account_name = $request->input('account_name');
-        $profile->account_no = $request->input('account_no');
-        $profile->ifsc = $request->input('ifsc');
-        $profile->business_name = $request->input('business_name');
-        $profile->gstin = $request->input('gstin');
-        $profile->save();
 
-        return $this->sendResponse(['Profile'=>new ProfileResource($profile)], 'Profile updated successfully.');
 
-    }
+     //   }
+       
 
 }

@@ -31,7 +31,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: amctcqbldsnfeftgdeuidpnio
+        example: ipeyumipppcygqir
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -40,7 +40,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: ricardo.kirlin@example.net
+        example: oblick@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -49,7 +49,7 @@ endpoints:
         name: mobile
         description: 'Must match the regex /^\+(?:\d{1}.'
         required: true
-        example: '+(:8'
+        example: '+:6'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -58,7 +58,7 @@ endpoints:
         name: pan
         description: 'Must match the regex /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/.'
         required: true
-        example: bHWXh2797T
+        example: DEmhu3837m
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -67,7 +67,7 @@ endpoints:
         name: password
         description: 'Must be at least 6 characters.'
         required: true
-        example: '>DM*(k=C_'
+        example: "%8'iTM/f"
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -76,7 +76,7 @@ endpoints:
         name: password_confirmation
         description: ''
         required: true
-        example: qui
+        example: corrupti
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -85,7 +85,7 @@ endpoints:
         name: parent_id
         description: ''
         required: true
-        example: quia
+        example: nesciunt
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -94,20 +94,20 @@ endpoints:
         name: ref_id
         description: ''
         required: true
-        example: quia
+        example: atque
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: amctcqbldsnfeftgdeuidpnio
-      email: ricardo.kirlin@example.net
-      mobile: '+(:8'
-      pan: bHWXh2797T
-      password: '>DM*(k=C_'
-      password_confirmation: qui
-      parent_id: quia
-      ref_id: quia
+      name: ipeyumipppcygqir
+      email: oblick@example.com
+      mobile: '+:6'
+      pan: DEmhu3837m
+      password: "%8'iTM/f"
+      password_confirmation: corrupti
+      parent_id: nesciunt
+      ref_id: atque
     fileParameters: []
     responses: []
     responseFields: []
@@ -144,7 +144,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: igrady@example.net
+        example: zena57@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -153,14 +153,14 @@ endpoints:
         name: password
         description: 'Must be at least 6 characters.'
         required: true
-        example: ',18}^#w'
+        example: 'XEzGWq]<m=V\#'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: igrady@example.net
-      password: ',18}^#w'
+      email: zena57@example.org
+      password: 'XEzGWq]<m=V\#'
     fileParameters: []
     responses: []
     responseFields: []
@@ -194,69 +194,6 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/update
-    metadata:
-      groupName: 'User Management'
-      groupDescription: |-
-
-        API for Managing Users
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Update Profile'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-      Authorization: 'Bearer '
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      user_id:
-        name: user_id
-        description: 'This is logged in user_id'
-        required: true
-        example: 5
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      amount:
-        name: amount
-        description: 'Amount paid by User'
-        required: false
-        example: amet
-        type: decimal
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      email:
-        name: email
-        description: "email User's valid Email"
-        required: true
-        example: billy92@example.net
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      user_id: 5
-      amount: amet
-      email: billy92@example.net
     fileParameters: []
     responses: []
     responseFields: []

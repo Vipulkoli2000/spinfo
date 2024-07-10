@@ -10,11 +10,73 @@
     ],
     "info": {
         "name": "SP Info API Documentation",
-        "_postman_id": "c749d0c6-a4cd-46c6-a843-d578e6910813",
+        "_postman_id": "91ff8856-7a06-4a11-918c-bc83f1aa12da",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
+        {
+            "name": "Payment Management",
+            "description": " `",
+            "item": [
+                {
+                    "name": "Show Payment",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/payment\/:profile_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/payment\/:profile_id",
+                            "variable": [
+                                {
+                                    "id": "profile_id",
+                                    "key": "profile_id",
+                                    "value": "hic",
+                                    "description": "The ID of the profile."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
         {
             "name": "Profile Management",
             "description": "\nAPI for Managing Profile data",
@@ -31,7 +93,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "rerum",
+                                    "value": "voluptatem",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -87,7 +149,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "animi",
+                                    "value": "ratione",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -105,7 +167,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"dolorem\",\"mobile\":\"ipsum\",\"pan\":\"quam\",\"address_1\":\"velit\",\"address_2\":\"minima\",\"city\":\"veniam\",\"state\":\"corporis\",\"pincode\":\"quisquam\",\"bank_name\":\"sapiente\",\"account_name\":\"consequatur\",\"account_no\":\"nobis\",\"ifsc\":\"praesentium\",\"business_name\":\"et\",\"gstin\":\"debitis\"}"
+                            "raw": "{\"name\":\"iure\",\"mobile\":\"eaque\",\"pan\":\"ipsa\",\"address_1\":\"quis\",\"address_2\":\"eius\",\"city\":\"officiis\",\"state\":\"ipsum\",\"pincode\":\"atque\",\"bank_name\":\"soluta\",\"account_name\":\"corporis\",\"account_no\":\"quos\",\"ifsc\":\"eveniet\",\"business_name\":\"aliquam\",\"gstin\":\"dolor\"}"
                         },
                         "description": "",
                         "auth": {
@@ -142,7 +204,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"amctcqbldsnfeftgdeuidpnio\",\"email\":\"ricardo.kirlin@example.net\",\"mobile\":\"+(:8\",\"pan\":\"bHWXh2797T\",\"password\":\">DM*(k=C_\",\"password_confirmation\":\"qui\",\"parent_id\":\"quia\",\"ref_id\":\"quia\"}"
+                            "raw": "{\"name\":\"ipeyumipppcygqir\",\"email\":\"oblick@example.com\",\"mobile\":\"+:6\",\"pan\":\"DEmhu3837m\",\"password\":\"%8'iTM\\\/f\",\"password_confirmation\":\"corrupti\",\"parent_id\":\"nesciunt\",\"ref_id\":\"atque\"}"
                         },
                         "description": "",
                         "auth": {
@@ -173,7 +235,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"igrady@example.net\",\"password\":\",18}^#w\"}"
+                            "raw": "{\"email\":\"zena57@example.org\",\"password\":\"XEzGWq]<m=V\\\\#\"}"
                         },
                         "description": "",
                         "auth": {
@@ -203,37 +265,6 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Update Profile",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/update",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/update"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"user_id\":5,\"amount\":\"amet\",\"email\":\"billy92@example.net\"}"
-                        },
                         "description": "",
                         "auth": {
                             "type": "noauth"
