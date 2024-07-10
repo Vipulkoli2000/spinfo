@@ -84,8 +84,8 @@ class UserController extends BaseController
         $profile->ref_id = $ref_id;
         $profile->save();
 
-        $memberRole = Role::where('name', 'member')->first();
-        $profile->assignRole($memberRole);  //last
+        // $memberRole = Role::where('name', 'member')->first();
+        // $profile->assignRole($memberRole);  //last
 
         return $this->sendResponse(['user'=>new UserResource($user), 'profile'=>$profile], 'User register successfully.');
     }
