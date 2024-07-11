@@ -22,7 +22,9 @@ use App\Http\Controllers\Api\BaseController;
 
 class ProfileController extends BaseController
 {
-
+       /*
+       * All Profile
+       */
     public function index(): JsonResponse
     {
        // $user = Auth::user();

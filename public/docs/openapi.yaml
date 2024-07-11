@@ -34,10 +34,32 @@ paths:
         in: path
         name: profile_id
         description: 'The ID of the profile.'
-        example: hic
+        example: eum
         required: true
         schema:
           type: string
+  /api/profiles:
+    get:
+      summary: ''
+      operationId: getApiProfiles
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Profile Management'
+      security: []
   '/api/profiles/{id}':
     get:
       summary: 'Show Profile'
@@ -78,66 +100,66 @@ paths:
                 name:
                   type: string
                   description: 'The name of the user.'
-                  example: iure
+                  example: eligendi
                 mobile:
                   type: string
                   description: 'The mobile number of the user.'
-                  example: eaque
+                  example: aut
                 pan:
                   type: string
                   description: 'The pan number of the user.'
-                  example: ipsa
+                  example: provident
                 address_1:
                   type: string
                   description: 'The address_1 of the user.'
-                  example: quis
+                  example: ipsa
                 address_2:
                   type: string
                   description: 'The address_1 of the user.'
-                  example: eius
+                  example: doloribus
                 city:
                   type: string
                   description: 'The city of the user.'
-                  example: officiis
+                  example: omnis
                 state:
                   type: string
                   description: 'The state of the user.'
-                  example: ipsum
+                  example: excepturi
                 pincode:
                   type: string
                   description: 'The pincode of the user.'
-                  example: atque
+                  example: quia
                 bank_name:
                   type: string
                   description: 'The bank name of the user.'
-                  example: soluta
+                  example: fuga
                 account_name:
                   type: string
                   description: 'The account name of the user.'
-                  example: corporis
+                  example: dignissimos
                 account_no:
                   type: string
                   description: 'The account number of the user.'
-                  example: quos
+                  example: culpa
                 ifsc:
                   type: string
                   description: 'The ifsc number of the user.'
-                  example: eveniet
+                  example: sit
                 business_name:
                   type: string
                   description: 'The business_name of the user.'
-                  example: aliquam
+                  example: cum
                 gstin:
                   type: string
                   description: 'The gstin of the user.'
-                  example: dolor
+                  example: eos
       security: []
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the profile.'
-        example: voluptatem
+        example: necessitatibus
         required: true
         schema:
           type: string
@@ -160,35 +182,35 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: ipeyumipppcygqir
+                  example: buczpiiyymdijkbkrxulyat
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: oblick@example.com
+                  example: aracely.okeefe@example.org
                 mobile:
                   type: string
                   description: 'Must match the regex /^\+(?:\d{1}.'
-                  example: '+:6'
+                  example: '+(:2'
                 pan:
                   type: string
                   description: 'Must match the regex /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/.'
-                  example: DEmhu3837m
+                  example: iQXgl7034c
                 password:
                   type: string
                   description: 'Must be at least 6 characters.'
-                  example: "%8'iTM/f"
+                  example: 4v=^D!
                 password_confirmation:
                   type: string
                   description: ''
-                  example: corrupti
+                  example: molestiae
                 parent_id:
                   type: string
                   description: ''
-                  example: nesciunt
+                  example: reprehenderit
                 ref_id:
                   type: string
                   description: ''
-                  example: atque
+                  example: sint
               required:
                 - name
                 - email
@@ -218,11 +240,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: zena57@example.org
+                  example: lera.terry@example.com
                 password:
                   type: string
                   description: 'Must be at least 6 characters.'
-                  example: 'XEzGWq]<m=V\#'
+                  example: 's&,Q2E$8?VAd'
               required:
                 - email
                 - password

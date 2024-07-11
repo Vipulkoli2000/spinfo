@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "SP Info API Documentation",
-        "_postman_id": "91ff8856-7a06-4a11-918c-bc83f1aa12da",
+        "_postman_id": "54d5d7f0-a5a7-43ff-8af6-9e4bc351d39e",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -31,7 +31,7 @@
                                 {
                                     "id": "profile_id",
                                     "key": "profile_id",
-                                    "value": "hic",
+                                    "value": "eum",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -82,6 +82,54 @@
             "description": "\nAPI for Managing Profile data",
             "item": [
                 {
+                    "name": "GET api\/profiles",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/profiles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/profiles"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
                     "name": "Show Profile",
                     "request": {
                         "url": {
@@ -93,7 +141,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "voluptatem",
+                                    "value": "necessitatibus",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -149,7 +197,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "ratione",
+                                    "value": "vel",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -167,7 +215,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"iure\",\"mobile\":\"eaque\",\"pan\":\"ipsa\",\"address_1\":\"quis\",\"address_2\":\"eius\",\"city\":\"officiis\",\"state\":\"ipsum\",\"pincode\":\"atque\",\"bank_name\":\"soluta\",\"account_name\":\"corporis\",\"account_no\":\"quos\",\"ifsc\":\"eveniet\",\"business_name\":\"aliquam\",\"gstin\":\"dolor\"}"
+                            "raw": "{\"name\":\"eligendi\",\"mobile\":\"aut\",\"pan\":\"provident\",\"address_1\":\"ipsa\",\"address_2\":\"doloribus\",\"city\":\"omnis\",\"state\":\"excepturi\",\"pincode\":\"quia\",\"bank_name\":\"fuga\",\"account_name\":\"dignissimos\",\"account_no\":\"culpa\",\"ifsc\":\"sit\",\"business_name\":\"cum\",\"gstin\":\"eos\"}"
                         },
                         "description": "",
                         "auth": {
@@ -204,7 +252,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"ipeyumipppcygqir\",\"email\":\"oblick@example.com\",\"mobile\":\"+:6\",\"pan\":\"DEmhu3837m\",\"password\":\"%8'iTM\\\/f\",\"password_confirmation\":\"corrupti\",\"parent_id\":\"nesciunt\",\"ref_id\":\"atque\"}"
+                            "raw": "{\"name\":\"buczpiiyymdijkbkrxulyat\",\"email\":\"aracely.okeefe@example.org\",\"mobile\":\"+(:2\",\"pan\":\"iQXgl7034c\",\"password\":\"4v=^D!\",\"password_confirmation\":\"molestiae\",\"parent_id\":\"reprehenderit\",\"ref_id\":\"sint\"}"
                         },
                         "description": "",
                         "auth": {
@@ -235,7 +283,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"zena57@example.org\",\"password\":\"XEzGWq]<m=V\\\\#\"}"
+                            "raw": "{\"email\":\"lera.terry@example.com\",\"password\":\"s&,Q2E$8?VAd\"}"
                         },
                         "description": "",
                         "auth": {

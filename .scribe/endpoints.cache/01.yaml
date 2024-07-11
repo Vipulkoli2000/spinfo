@@ -8,6 +8,48 @@ endpoints:
   -
     httpMethods:
       - GET
+    uri: api/profiles
+    metadata:
+      groupName: 'Profile Management'
+      groupDescription: |-
+
+        API for Managing Profile data
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer '
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
     uri: 'api/profiles/{id}'
     metadata:
       groupName: 'Profile Management'
@@ -29,13 +71,13 @@ endpoints:
         name: id
         description: 'The ID of the profile.'
         required: true
-        example: voluptatem
+        example: necessitatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: voluptatem
+      id: necessitatibus
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -82,13 +124,13 @@ endpoints:
         name: id
         description: 'The ID of the profile.'
         required: true
-        example: ratione
+        example: vel
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: ratione
+      id: vel
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -96,7 +138,7 @@ endpoints:
         name: name
         description: 'The name of the user.'
         required: false
-        example: iure
+        example: eligendi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -105,7 +147,7 @@ endpoints:
         name: mobile
         description: 'The mobile number of the user.'
         required: false
-        example: eaque
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -114,7 +156,7 @@ endpoints:
         name: pan
         description: 'The pan number of the user.'
         required: false
-        example: ipsa
+        example: provident
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -123,7 +165,7 @@ endpoints:
         name: address_1
         description: 'The address_1 of the user.'
         required: false
-        example: quis
+        example: ipsa
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -132,7 +174,7 @@ endpoints:
         name: address_2
         description: 'The address_1 of the user.'
         required: false
-        example: eius
+        example: doloribus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -141,7 +183,7 @@ endpoints:
         name: city
         description: 'The city of the user.'
         required: false
-        example: officiis
+        example: omnis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -150,7 +192,7 @@ endpoints:
         name: state
         description: 'The state of the user.'
         required: false
-        example: ipsum
+        example: excepturi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -159,7 +201,7 @@ endpoints:
         name: pincode
         description: 'The pincode of the user.'
         required: false
-        example: atque
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -168,7 +210,7 @@ endpoints:
         name: bank_name
         description: 'The bank name of the user.'
         required: false
-        example: soluta
+        example: fuga
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -177,7 +219,7 @@ endpoints:
         name: account_name
         description: 'The account name of the user.'
         required: false
-        example: corporis
+        example: dignissimos
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -186,7 +228,7 @@ endpoints:
         name: account_no
         description: 'The account number of the user.'
         required: false
-        example: quos
+        example: culpa
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -195,7 +237,7 @@ endpoints:
         name: ifsc
         description: 'The ifsc number of the user.'
         required: false
-        example: eveniet
+        example: sit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -204,7 +246,7 @@ endpoints:
         name: business_name
         description: 'The business_name of the user.'
         required: false
-        example: aliquam
+        example: cum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -213,26 +255,26 @@ endpoints:
         name: gstin
         description: 'The gstin of the user.'
         required: false
-        example: dolor
+        example: eos
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: iure
-      mobile: eaque
-      pan: ipsa
-      address_1: quis
-      address_2: eius
-      city: officiis
-      state: ipsum
-      pincode: atque
-      bank_name: soluta
-      account_name: corporis
-      account_no: quos
-      ifsc: eveniet
-      business_name: aliquam
-      gstin: dolor
+      name: eligendi
+      mobile: aut
+      pan: provident
+      address_1: ipsa
+      address_2: doloribus
+      city: omnis
+      state: excepturi
+      pincode: quia
+      bank_name: fuga
+      account_name: dignissimos
+      account_no: culpa
+      ifsc: sit
+      business_name: cum
+      gstin: eos
     fileParameters: []
     responses: []
     responseFields: []
