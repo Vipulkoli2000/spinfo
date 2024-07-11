@@ -23,6 +23,14 @@ use App\Http\Controllers\Api\BaseController;
 class ProfileController extends BaseController
 {
 
+    public function index(): JsonResponse
+    {
+       // $user = Auth::user();
+        $profile = Profile::all();
+        return $this->sendResponse(['ProfileList'=>ProfileResource::collection($profile)], "All Profiles Retrived successfully");
+    }
+
+
      /**
      *  Show Profile
      */
@@ -98,7 +106,7 @@ class ProfileController extends BaseController
 
 
 
-       }
+    }
        
 
 }

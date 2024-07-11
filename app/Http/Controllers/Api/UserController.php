@@ -72,8 +72,9 @@ class UserController extends BaseController
         $user->password = $input['password'];
         $user->save();
 
-       $memberRole = Role::where('name', 'member')->first();
-       $user->assignRole($memberRole);
+        $memberRole = Role::where('name', 'member')->first();
+        $user->assignRole($memberRole);
+        //$role = $user->getRoleNames();
 
         $profile = new Profile();
         $profile->user_id = $user->id;
