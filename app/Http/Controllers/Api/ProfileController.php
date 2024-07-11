@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -59,7 +60,19 @@ class ProfileController extends BaseController
      */
     public function update(UpdateProfileRequest $request, string $id): JsonResponse
     {
-           $profile = Profile::find($id);
+        $profile = Profile::find($id);
+        $user = User::find($profile->user_id);
+        if ($user->hasPermissionTo('update profile')) {
+            // User can edit posts
+            
+            // if(!$profile){
+            //     return $this->sendError('Profile Not Found', ['error'=>'Profile not found']);
+            // }
+            // $user = Auth::user();
+            // if($user->id !== $profile->user_id){
+            //     return $this->sendError('Unauthorized', ['error'=>'You are not allowed to update this profile.']);
+            // }
+    
             $profile->name = $request->input('name');
             $profile->mobile = $request->input('mobile');
             $profile->pan = $request->input('pan');
@@ -82,6 +95,10 @@ class ProfileController extends BaseController
             return $this->sendResponse(['Profile'=>new ProfileResource($profile)], 'Profile updated successfully.');
     
         }
+
+
+
+       }
        
 
 }

@@ -57,26 +57,7 @@ class PaymentController extends BaseController
             $parentProfile1->save();
 
             Transaction::insertDeposit($parentId, 100);
-
-            // $transaction = new Transaction();
-            // $transaction->insertDeposite($parentId, 100);
-
-            //$transaction = Transaction::find($parentProfile1->transaction->id);
-            // if($parentProfile1->transaction){
-            //   $parentProfile1->transaction->deposite += 100;
-            //   $parentProfile1->transaction->transaction_date = date("Y-m-d");
-            //   $parentProfile1->transaction->save();
-            // }
-           // else{
-            
-                // $newTransaction = new Transaction();
-                // $newTransaction->profile_id = $parentProfile1->id;
-                // $newTransaction->deposite = 100;
-                // $newTransaction->transaction_date = date("Y-m-d");
-                // $newTransaction->save();
-          //  }
-             Profile::updateWalletBalance($parentProfile1->id);
-            
+            Profile::updateWalletBalance($parentProfile1->id);
             $parentId = $parentProfile1->parent_id;
         }
 
@@ -86,19 +67,6 @@ class PaymentController extends BaseController
             $parentProfile2->save();
             
             Transaction::insertDeposit($parentId, 100);
-
-            // if($parentProfile2->transaction){
-            //     $parentProfile2->transaction->deposite += 100;
-            //     $parentProfile2->transaction->transaction_date = date("Y-m-d");
-            //     $parentProfile2->transaction->save();
-            //   }
-            // else{
-            //     $newTransaction = new Transaction();
-            //     $newTransaction->profile_id = $parentProfile2->id;
-            //     $newTransaction->deposite = 100;
-            //     $newTransaction->transaction_date = date("Y-m-d");
-            //     $newTransaction->save();
-            // }
             Profile::updateWalletBalance($parentProfile2->id);
             $parentId = $parentProfile2->parent_id;
         }
@@ -110,19 +78,6 @@ class PaymentController extends BaseController
 
 
             Transaction::insertDeposit($parentId, 100);
-
-            // if($parentProfile3->transaction){
-            //     $parentProfile3->transaction->deposite += 100;
-            //     $parentProfile3->transaction->transaction_date = date("Y-m-d");
-            //     $parentProfile3->transaction->save();
-            //   }
-            // else{
-            //     $newTransaction = new Transaction();
-            //     $newTransaction->profile_id = $parentProfile3->id;
-            //     $newTransaction->deposite = 100;
-            //     $newTransaction->transaction_date = date("Y-m-d");
-            //     $newTransaction->save();
-            // }
             Profile::updateWalletBalance($parentProfile3->id);
             $parentId = $parentProfile3->parent_id;
         }
@@ -133,19 +88,6 @@ class PaymentController extends BaseController
             $parentProfile4->save();
 
             Transaction::insertDeposit($parentId, 100);
-
-            // if($parentProfile4->transaction){
-            //     $parentProfile4->transaction->deposite += 100;
-            //     $parentProfile4->transaction->transaction_date = date("Y-m-d");
-            //     $parentProfile4->transaction->save();
-            //   }
-            // else{
-            //     $newTransaction = new Transaction();
-            //     $newTransaction->profile_id = $parentProfile4->id;
-            //     $newTransaction->deposite = 100;
-            //     $newTransaction->transaction_date = date("Y-m-d");
-            //     $newTransaction->save();
-            // }
             Profile::updateWalletBalance($parentProfile4->id);
             $parentId = $parentProfile4->parent_id;
         }
@@ -156,19 +98,6 @@ class PaymentController extends BaseController
             $parentProfile5->save();
 
             Transaction::insertDeposit($parentId, 100);
-
-            // if($parentProfile5->transaction){
-            //     $parentProfile5->transaction->deposite += 100;
-            //     $parentProfile5->transaction->transaction_date = date("Y-m-d");
-            //     $parentProfile5->transaction->save();
-            //   }
-            // else{
-            //     $newTransaction = new Transaction();
-            //     $newTransaction->profile_id = $parentProfile5->id;
-            //     $newTransaction->deposite = 100;
-            //     $newTransaction->transaction_date = date("Y-m-d");
-            //     $newTransaction->save();
-            // }
             Profile::updateWalletBalance($parentProfile5->id);
             $parentId = $parentProfile5->parent_id;
         }
@@ -179,19 +108,6 @@ class PaymentController extends BaseController
             $parentProfile6->save();
 
             Transaction::insertDeposit($parentId, 100);
-
-            // if($parentProfile6->transaction){
-            //     $parentProfile6->transaction->deposite += 100;
-            //     $parentProfile6->transaction->transaction_date = date("Y-m-d");
-            //     $parentProfile6->transaction->save();
-            //   }
-            // else{
-            //     $newTransaction = new Transaction();
-            //     $newTransaction->profile_id = $parentProfile6->id;
-            //     $newTransaction->deposite = 100;
-            //     $newTransaction->transaction_date = date("Y-m-d");
-            //     $newTransaction->save();
-            // }
             Profile::updateWalletBalance($parentProfile6->id);
             $parentId = $parentProfile6->parent_id;
         }
@@ -202,19 +118,6 @@ class PaymentController extends BaseController
             $parentProfile7->save();
 
             Transaction::insertDeposit($parentId, 100);
-
-            // if($parentProfile7->transaction){
-            //     $parentProfile7->transaction->deposite += 100;
-            //     $parentProfile7->transaction->transaction_date = date("Y-m-d");
-            //     $parentProfile7->transaction->save();
-            //   }
-            // else{
-            //     $newTransaction = new Transaction();
-            //     $newTransaction->profile_id = $parentProfile7->id;
-            //     $newTransaction->deposite = 100;
-            //     $newTransaction->transaction_date = date("Y-m-d");
-            //     $newTransaction->save();
-            // }
             Profile::updateWalletBalance($parentProfile7->id);
             $parentId = $parentProfile7->parent_id;
         }
@@ -225,19 +128,6 @@ class PaymentController extends BaseController
             $parentProfile8->save();
 
             Transaction::insertDeposit($parentId, 100);
-
-            // if($parentProfile8->transaction){
-            //     $parentProfile8->transaction->deposite += 100;
-            //     $parentProfile8->transaction->transaction_date = date("Y-m-d");
-            //     $parentProfile8->transaction->save();
-            //   }
-            // else{
-            //     $newTransaction = new Transaction();
-            //     $newTransaction->profile_id = $parentProfile8->id;
-            //     $newTransaction->deposite = 100;
-            //     $newTransaction->transaction_date = date("Y-m-d");
-            //     $newTransaction->save();
-            // }
             Profile::updateWalletBalance($parentProfile8->id);
         }
 
@@ -250,28 +140,7 @@ class PaymentController extends BaseController
          * While registerting user is always a member
          */
 
-        return $this->sendResponse(['profile'=>new ProfileResource($profile)], 'Profile retrieved successfully.');
+        return $this->sendResponse(['profile'=>new ProfileResource($profile)], 'Payment done Successly.');
     }
-
-//     public function updateWalletBalance(string $profile_id)
-//    {
-//         // select (sum(deposites) - sum(withdrawls)) as balance where profile_id = $profile_id
-//         // update wallet_balance in profiles table
-//         $profile = Profile::find($profile_id);
-
-//         if (!$profile) {
-//          return $this->sendError('Profile not found.', ['error'=>'Profile not found']);
-//         }
-
-//         $balance = Transaction::where('profile_id', $profile_id)
-//             ->sum('deposite') - Transaction::where('profile_id', $profile_id)
-//             ->sum('withdrawal');
-
-//          $profile->wallet_balance = $balance;
-//          $profile->save();
-
-//          return $this->sendResponse(['profile'=>new ProfileResource($profile)], 'Wallet Balanace updated.');
-
-//    }
 
 }
