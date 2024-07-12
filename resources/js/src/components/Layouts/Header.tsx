@@ -7,8 +7,11 @@ import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import Dropdown from '../Dropdown';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 
 const Header = () => {
+    const navigate = useNavigate();
     const location = useLocation();
     useEffect(() => {
         const selector = document.querySelector('ul.horizontal-menu a[href="' + window.location.pathname + '"]');
@@ -126,6 +129,25 @@ const Header = () => {
             console.log(error);
         }
     };
+    const logout = async () => {
+        try {
+            const response = await axios.post(
+                '/api/logout',
+                {},
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + localStorage.getItem('token'),
+                    },
+                }
+            );
+            toast.success('Logged out successfully');
+            console.log(response);
+            navigate('/login');
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <header className={`z-40 ${themeConfig.semidark && themeConfig.menu === 'horizontal' ? 'dark' : ''}`}>
@@ -165,11 +187,15 @@ const Header = () => {
                                 </svg>
                             </button>
                         </div>
-                        <div className="dropdown shrink-0 flex">
-                            <button type="button" className="btn btn-primary btn-sm ml-auto" onClick={callapi}>
-                                Make payment
-                            </button>
-                        </div>
+                        {User.profile.profile_no !== null ||
+                            User.profile.profile_no !== undefined ||
+                            (User.profile.profile_no !== '' && (
+                                <div className="dropdown shrink-0 flex">
+                                    <button type="button" className="btn btn-primary btn-sm ml-auto" onClick={callapi}>
+                                        Make payment
+                                    </button>
+                                </div>
+                            ))}
 
                         <div className="dropdown shrink-0 flex">
                             <Dropdown
@@ -184,11 +210,11 @@ const Header = () => {
                                             <img className="rounded-md w-10 h-10 object-cover" src="/assets/images/user-profile.jpeg" alt="userProfile" />
                                             <div className="ltr:pl-4 rtl:pr-4 truncate">
                                                 <h4 className="text-base">
-                                                    John Doe
+                                                    {User?.profile?.name}
                                                     <span className="text-xs bg-success-light rounded text-success px-1 ltr:ml-2 rtl:ml-2">Pro</span>
                                                 </h4>
                                                 <button type="button" className="text-black/60 hover:text-primary dark:text-dark-light/60 dark:hover:text-white">
-                                                    johndoe@gmail.com
+                                                    {User?.email}
                                                 </button>
                                             </div>
                                         </div>
@@ -207,28 +233,9 @@ const Header = () => {
                                             Profile
                                         </Link>
                                     </li>
-                                    <li>
-                                        <Link to="/apps/mailbox" className="dark:hover:text-white">
-                                            <svg className="ltr:mr-2 rtl:ml-2 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    opacity="0.5"
-                                                    d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12C22 15.7712 22 17.6569 20.8284 18.8284C19.6569 20 17.7712 20 14 20H10C6.22876 20 4.34315 20 3.17157 18.8284C2 17.6569 2 15.7712 2 12Z"
-                                                    stroke="currentColor"
-                                                    strokeWidth="1.5"
-                                                />
-                                                <path
-                                                    d="M6 8L8.1589 9.79908C9.99553 11.3296 10.9139 12.0949 12 12.0949C13.0861 12.0949 14.0045 11.3296 15.8411 9.79908L18 8"
-                                                    stroke="currentColor"
-                                                    strokeWidth="1.5"
-                                                    strokeLinecap="round"
-                                                />
-                                            </svg>
-                                            Inbox
-                                        </Link>
-                                    </li>
 
                                     <li className="border-t border-white-light dark:border-white-light/10">
-                                        <Link to="/auth/boxed-signin" className="text-danger !py-3">
+                                        <button onClick={logout} className="text-danger !py-3">
                                             <svg className="ltr:mr-2 rtl:ml-2 rotate-90 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     opacity="0.5"
@@ -240,7 +247,7 @@ const Header = () => {
                                                 <path d="M12 15L12 2M12 2L15 5.5M12 2L9 5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                             </svg>
                                             Sign Out
-                                        </Link>
+                                        </button>
                                     </li>
                                 </ul>
                             </Dropdown>
