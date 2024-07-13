@@ -4,9 +4,12 @@ import { IRootState } from '../../store';
 import { setPageTitle } from '../../store/themeConfigSlice';
 import Dropdown from './DropDown';
 import axios from 'axios';
-import {toggleProfileEdit } from '../../store/themeConfigSlice';
+import { toggleProfileEdit } from '../../store/themeConfigSlice';
+import { useNavigate } from 'react-router-dom';
+import { Formatcurrency } from '../../utils/utils';
 
 const Profiles = () => {
+    const navigate = useNavigate();
     const [profileList, setProfileList] = useState([]);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -115,13 +118,18 @@ const Profiles = () => {
                             Code
                         </span>
                     </button> */}
+                    <div className="flex items-center gap-2 mb-5">
+                        <input type="text" className="form-input" placeholder="Search" />
+                    </div>
                 </div>
                 <div className="table-responsive mb-5">
                     <table>
                         <thead>
                             <tr>
-                                <th>Name</th>
                                 <th>Profile Number</th>
+                                <th>Name</th>
+                                <th>Expiry Date</th>
+                                <th>Mobile</th>
                                 <th>Wallet Balance</th>
                                 <th>Status</th>
                                 <th className="text-center">Action</th>
@@ -131,11 +139,14 @@ const Profiles = () => {
                             {profileList.map((data) => {
                                 return (
                                     <tr key={data?.id}>
+                                        <td>{data.profile_no}</td>
                                         <td>
                                             <div className="whitespace-nowrap">{data?.name}</div>
                                         </td>
-                                        <td>{data.profile_no}</td>
-                                        <td>{data.wallet_balance}</td>
+
+                                        <td>{data.expiry_date}</td>
+                                        <td>{data.mobile}</td>
+                                        <td>{Formatcurrency(data.wallet_balance)}</td>
                                         <td>
                                             <span className={`badge whitespace-nowrap ${data.profile_no ? 'bg-primary   ' : !data.profile_no ? 'bg-secondary' : 'bg-primary'}`}>
                                                 {data.profile_no ? 'Payment Done' : 'Not Paid'}
@@ -155,7 +166,12 @@ const Profiles = () => {
                                                     }
                                                 >
                                                     <ul>
-                                                        <li onClick={()=>{dispatch(toggleProfileEdit(true))}}>
+                                                        <li
+                                                            onClick={() => {
+                                                                // dispatch(toggleProfileEdit(data?.id));
+                                                                navigate(`/profile/${data?.id}`);
+                                                            }}
+                                                        >
                                                             <button type="button">Edit</button>
                                                         </li>
                                                         <li>

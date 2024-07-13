@@ -13,7 +13,7 @@ import axios from 'axios';
 const loginSchema = z.object({
     email: z.string().email('Invalid email address').min(1, 'Email is required'),
     password: z.string().min(6, 'Password is required'),
-    isAdmin: z.boolean().optional(),
+    isAdmin: z.any().optional(),
 });
 
 type LoginFormInputs = z.infer<typeof loginSchema>;
@@ -23,13 +23,14 @@ const LoginBoxed = () => {
     const navigate = useNavigate();
     const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
     const [isAdmin, setIsAdmin] = useState(false);
-    useEffect(() => {   
+    useEffect(() => {
         dispatch(setPageTitle('Login Boxed'));
     }, [dispatch]);
 
     const {
         register,
         handleSubmit,
+        watch,
         formState: { errors },
     } = useForm<LoginFormInputs>({
         resolver: zodResolver(loginSchema),
@@ -40,20 +41,22 @@ const LoginBoxed = () => {
         if (response.data) {
             localStorage.setItem('user', JSON.stringify(response.data.data.user));
             localStorage.setItem('token', response.data.data.token);
-
         }
-        if(isAdmin){
+        console.log('BOOL', isAdmin);
+        if (isAdmin) {
             navigate('/profiles');
-            return
+            return;
+        } else {
+            navigate('/');
         }
-        navigate('/');
     };
 
     const onSubmit = (data: LoginFormInputs) => {
-        if(data.isAdmin === true){
-            setIsAdmin(true);
-        }
-         console.log(data);
+        console.log(data.isAdmin);
+        data.isAdmin = watch('isAdmin') === true;
+        setIsAdmin(data.isAdmin || false);
+        console.log(data);
+        console.log('BOOLonSUbmt', isAdmin);
         CallApi(data);
     };
 
@@ -74,9 +77,11 @@ const LoginBoxed = () => {
                             <input id="password" type="password" {...register('password')} className="form-input" placeholder="Enter Password" />
                             {errors.password && <span className="text-red-600">{errors.password.message}</span>}
                         </div>
-                        <div>
-                            <label htmlFor="isAdmin">Admin</label>
-                            <input id="isAdmin" type="checkbox"  {...register('isAdmin')} className="form-input" value="true" placeholder="Enter Password" />
+                        <div className="flex items-center text-center gap-4">
+                            <label className="text-sm text-center" htmlFor="isAdmin">
+                                Admin
+                            </label>
+                            <input id="isAdmin" type="checkbox" onChange={(e) => setIsAdmin(e.target.checked)} value="true" placeholder="Enter Password" />
                             {errors.isAdmin && <span className="text-red-600">{errors.isAdmin.message}</span>}
                         </div>
 

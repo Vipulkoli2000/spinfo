@@ -6,7 +6,7 @@ const LoginBoxed = lazy(() => import('../pages/Login/Login'));
 const Register = lazy(() => import('../pages/Login/Register'));
 const AdminProfiles = lazy(() => import('../pages/AdminProfiles/Profiles'));
 const UpdateProfile = lazy(() => import('../pages/Profile/UpdateProfile'));
-
+const AdminEditProfile = lazy(() => import('../pages/AdminProfiles/UpdateProfile'));
 const routes = [
     // dashboard
     {
@@ -37,6 +37,11 @@ const routes = [
     {
         path: 'profiles',
         element: <AdminProfiles />,
+        layout: 'default',
+    },
+    {
+        path: 'profile/:id',
+        element: <AdminEditProfile />,
         layout: 'default',
     },
 ];
