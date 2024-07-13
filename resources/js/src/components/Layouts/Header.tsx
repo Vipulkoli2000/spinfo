@@ -187,9 +187,9 @@ const Header = () => {
                                 </svg>
                             </button>
                         </div>
-                        {User?.profile?.profile_no !== null ||
+                        {User?.profile?.profile_no !== null ||as
                             User?.profile?.profile_no !== undefined ||
-                            (User?.profile? .profile_no !== '' && (
+                            (User?.profile?.profile_no !== '' && (
                                 <div className="dropdown shrink-0 flex">
                                     <button type="button" className="btn btn-primary btn-sm ml-auto" onClick={callapi}>
                                         Make payment
