@@ -44,9 +44,10 @@ class ProfileController extends BaseController
             return $this->sendError('Profile not found.', ['error'=>'Profile not found']);
         }
         $user = Auth::user();
-        if($user->id !== $profile->user_id){
-            return $this->sendError('Unauthorized', ['error'=>'You are not allowed to view this profile.']);
-        }
+        // if($user->id !== $profile->user_id){
+        //     return $this->sendError('Unauthorized', ['error'=>'You are not allowed to view this profile.']);
+        // }
+        
         return $this->sendResponse(['profile'=>new ProfileResource($profile)], 'Profile retrieved successfully.');
     }
 
