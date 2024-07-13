@@ -187,7 +187,7 @@ const Header = () => {
                                 </svg>
                             </button>
                         </div>
-                        {User?.profile?.profile_no !== null ||as
+                        {User?.profile?.profile_no !== null ||
                             User?.profile?.profile_no !== undefined ||
                             (User?.profile?.profile_no !== '' && (
                                 <div className="dropdown shrink-0 flex">
