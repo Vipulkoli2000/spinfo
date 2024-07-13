@@ -48,7 +48,7 @@ class ProfileController extends BaseController
         //     return $this->sendError('Unauthorized', ['error'=>'You are not allowed to view this profile.']);
         // }
         
-        return $this->sendResponse(['profile'=>new ProfileResource($profile)], 'Profile retrieved successfully.');
+        return $this->sendResponse(['profile'=>new ProfileResource($profile),'user'=>$user], 'Profile retrieved successfully.');
     }
 
 
