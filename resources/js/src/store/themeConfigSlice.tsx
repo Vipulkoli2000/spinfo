@@ -13,6 +13,7 @@ const defaultState = {
     navbar: 'navbar-sticky',
     locale: 'en',
     sidebar: false,
+    ProfileEditIsTrue: false,
     pageTitle: '',
     languageList: [
         { code: 'zh', name: 'Chinese' },
@@ -45,6 +46,7 @@ const initialState = {
     isDarkMode: false,
     sidebar: localStorage.getItem('sidebar') || defaultState.sidebar,
     semidark: localStorage.getItem('semidark') || themeConfig.semidark,
+    ProfileEditIsTrue: localStorage.getItem('ProfileEditIsTrue') || defaultState.ProfileEditIsTrue,
     languageList: [
         { code: 'zh', name: 'Chinese' },
         { code: 'da', name: 'Danish' },
@@ -135,6 +137,9 @@ const themeConfigSlice = createSlice({
 
         setPageTitle(state, { payload }) {
             document.title = `${payload} | VRISTO - Multipurpose Tailwind Dashboard Template`;
+        },
+            toggleProfileEdit(state) {
+            state.ProfileEditIsTrue = !state.ProfileEditIsTrue;
         },
     },
 });

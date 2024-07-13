@@ -4,6 +4,7 @@ import { IRootState } from '../../store';
 import { setPageTitle } from '../../store/themeConfigSlice';
 import Dropdown from './DropDown';
 import axios from 'axios';
+import {toggleProfileEdit } from '../../store/themeConfigSlice';
 
 const Profiles = () => {
     const [profileList, setProfileList] = useState([]);
@@ -154,7 +155,7 @@ const Profiles = () => {
                                                     }
                                                 >
                                                     <ul>
-                                                        <li>
+                                                        <li onClick={()=>{dispatch(toggleProfileEdit(true))}}>
                                                             <button type="button">Edit</button>
                                                         </li>
                                                         <li>

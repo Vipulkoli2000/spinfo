@@ -1,6 +1,7 @@
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -12,6 +13,7 @@ import axios from 'axios';
 const loginSchema = z.object({
     email: z.string().email('Invalid email address').min(1, 'Email is required'),
     password: z.string().min(6, 'Password is required'),
+    isAdmin: z.boolean().optional(),
 });
 
 type LoginFormInputs = z.infer<typeof loginSchema>;
@@ -20,8 +22,8 @@ const LoginBoxed = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
-
-    useEffect(() => {
+    const [isAdmin, setIsAdmin] = useState(false);
+    useEffect(() => {   
         dispatch(setPageTitle('Login Boxed'));
     }, [dispatch]);
 
@@ -38,13 +40,20 @@ const LoginBoxed = () => {
         if (response.data) {
             localStorage.setItem('user', JSON.stringify(response.data.data.user));
             localStorage.setItem('token', response.data.data.token);
+
+        }
+        if(isAdmin){
+            navigate('/profiles');
+            return
         }
         navigate('/');
     };
 
     const onSubmit = (data: LoginFormInputs) => {
-        // You can handle the form submission here, for example:
-        console.log(data);
+        if(data.isAdmin === true){
+            setIsAdmin(true);
+        }
+         console.log(data);
         CallApi(data);
     };
 
@@ -64,6 +73,11 @@ const LoginBoxed = () => {
                             <label htmlFor="password">Password</label>
                             <input id="password" type="password" {...register('password')} className="form-input" placeholder="Enter Password" />
                             {errors.password && <span className="text-red-600">{errors.password.message}</span>}
+                        </div>
+                        <div>
+                            <label htmlFor="isAdmin">Admin</label>
+                            <input id="isAdmin" type="checkbox"  {...register('isAdmin')} className="form-input" value="true" placeholder="Enter Password" />
+                            {errors.isAdmin && <span className="text-red-600">{errors.isAdmin.message}</span>}
                         </div>
 
                         <button type="submit" className="btn btn-primary w-full">
