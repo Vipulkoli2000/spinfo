@@ -188,9 +188,9 @@ const UpdateProfile = () => {
                                 {errors.mobile && <span className="text-red-600">{errors.mobile.message}</span>}
                             </div>
                             <div className="w-full flex flex-col justify-center">
-                                <div className="w-full flex items-center gap-2 space-between">
+                                <div className="w-full flex items-center gap-2  space-between">
                                     <label htmlFor="pan">Pan</label>
-                                    <input type="checkbox" id="pan_verified" {...register('pan_verified')} placeholder="Enter Pan" />
+                                    <input type="checkbox" className="mb-2 rounded-md" id="pan_verified" {...register('pan_verified')} placeholder="Enter Pan" />
                                 </div>
                                 <input id="pan" type="text" {...register('pan')} className="form-input" placeholder="Enter Pan" />
                                 {errors.pan && <span className="text-red-600">{errors.pan.message}</span>}
@@ -225,9 +225,15 @@ const UpdateProfile = () => {
 
                     <div className=" w-full flex flex-col justify-center col-span-2">
                         <div className="w-full flex flex-col justify-center">
-                            <label htmlFor="Bank" className="font-bold text-[20px] mb-6">
+                            <div className="w-full flex items-center gap-2  space-between">
+                                <label htmlFor="Bank" className="font-bold text-[20px] mb-6">
+                                    Bank Details
+                                </label>
+                                <input type="checkbox" name="bank_verified" id="bank_verified" className="mb-4 rounded-md" {...register('bank_verified')} placeholder="Enter Bank Details" />
+                            </div>
+                            {/* <label htmlFor="Bank" className="font-bold text-[20px] mb-6">
                                 Bank Details
-                            </label>
+                            </label> */}
                         </div>
                         <div className="w-full grid grid-cols-2 gap-4 justify-items-center mb-[50px]  col-span-2">
                             <div className="w-full flex flex-col justify-center">

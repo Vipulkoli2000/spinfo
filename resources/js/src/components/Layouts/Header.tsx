@@ -116,6 +116,7 @@ const Header = () => {
 
     const { t } = useTranslation();
     const User = JSON.parse(localStorage.getItem('user') as string);
+    console.log('USer', User);
     const callapi = async () => {
         try {
             const response = await axios.get(`/api/payment/${User.profile.id}`, {
@@ -187,16 +188,13 @@ const Header = () => {
                                 </svg>
                             </button>
                         </div>
-                        {User?.profile?.profile_no !== null ||
-                            User?.profile?.profile_no !== undefined ||
-                            (User?.profile?.profile_no !== '' && (
-                                <div className="dropdown shrink-0 flex">
-                                    <button type="button" className="btn btn-primary btn-sm ml-auto" onClick={callapi}>
-                                        Make payment
-                                    </button>
-                                </div>
-                            ))}
-
+                        {User?.profile?.profile_no === null && (
+                            <div className="dropdown shrink-0 flex">
+                                <button type="button" className="btn btn-primary btn-sm ml-auto" onClick={callapi}>
+                                    Make payment
+                                </button>
+                            </div>
+                        )}
                         <div className="dropdown shrink-0 flex">
                             <Dropdown
                                 offset={[0, 8]}
