@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "SP Info API Documentation",
-        "_postman_id": "54d5d7f0-a5a7-43ff-8af6-9e4bc351d39e",
+        "_postman_id": "bcc24407-5516-412a-a78b-aa5f2e4a680d",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -31,7 +31,7 @@
                                 {
                                     "id": "profile_id",
                                     "key": "profile_id",
-                                    "value": "eum",
+                                    "value": "doloremque",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -141,7 +141,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "necessitatibus",
+                                    "value": "sed",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -197,7 +197,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "vel",
+                                    "value": "eligendi",
                                     "description": "The ID of the profile."
                                 }
                             ]
@@ -215,7 +215,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"eligendi\",\"mobile\":\"aut\",\"pan\":\"provident\",\"address_1\":\"ipsa\",\"address_2\":\"doloribus\",\"city\":\"omnis\",\"state\":\"excepturi\",\"pincode\":\"quia\",\"bank_name\":\"fuga\",\"account_name\":\"dignissimos\",\"account_no\":\"culpa\",\"ifsc\":\"sit\",\"business_name\":\"cum\",\"gstin\":\"eos\"}"
+                            "raw": "{\"name\":\"quia\",\"mobile\":\"accusamus\",\"pan\":\"dignissimos\",\"address_1\":\"perferendis\",\"address_2\":\"nobis\",\"city\":\"suscipit\",\"state\":\"consequatur\",\"pincode\":\"deserunt\",\"bank_name\":\"eaque\",\"account_name\":\"deleniti\",\"account_no\":\"fuga\",\"ifsc\":\"ea\",\"business_name\":\"ut\",\"gstin\":\"dolores\"}"
                         },
                         "description": "",
                         "auth": {
@@ -223,6 +223,62 @@
                         }
                     },
                     "response": []
+                },
+                {
+                    "name": "GET api\/profiles\/get_profiles\/{parent_id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/profiles\/get_profiles\/:parent_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/profiles\/get_profiles\/:parent_id",
+                            "variable": [
+                                {
+                                    "id": "parent_id",
+                                    "key": "parent_id",
+                                    "value": "commodi",
+                                    "description": "The ID of the parent."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -252,7 +308,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"buczpiiyymdijkbkrxulyat\",\"email\":\"aracely.okeefe@example.org\",\"mobile\":\"+(:2\",\"pan\":\"iQXgl7034c\",\"password\":\"4v=^D!\",\"password_confirmation\":\"molestiae\",\"parent_id\":\"reprehenderit\",\"ref_id\":\"sint\"}"
+                            "raw": "{\"name\":\"mx\",\"email\":\"ecassin@example.com\",\"mobile\":\"+:6\",\"pan\":\"BcQrU3139N\",\"password\":\"p373pwEC4\",\"password_confirmation\":\"consequatur\",\"parent_id\":\"ea\",\"ref_id\":\"qui\"}"
                         },
                         "description": "",
                         "auth": {
@@ -283,7 +339,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"lera.terry@example.com\",\"password\":\"s&,Q2E$8?VAd\"}"
+                            "raw": "{\"email\":\"daniela.cartwright@example.net\",\"password\":\"q@8K3na)m\"}"
                         },
                         "description": "",
                         "auth": {

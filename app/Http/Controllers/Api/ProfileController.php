@@ -33,13 +33,13 @@ class ProfileController extends BaseController
     }
 
       /*
-       * All Profile of Level 1
+       * Get Verified Profiles
        */
       public function getProfiles(string $id): JsonResponse
       {
          // $user = Auth::user();
           $profile = Profile::where('parent_id',$id)->get();
-          return $this->sendResponse(['Profiles'=>ProfileResource::collection($profile)], "All Profiles Retrived successfully");
+          return $this->sendResponse(['Profiles'=>ProfileResource::collection($profile)], " Profiles Retrived successfully");
       }
 
 

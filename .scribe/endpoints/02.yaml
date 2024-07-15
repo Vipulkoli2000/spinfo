@@ -23,13 +23,13 @@ endpoints:
         name: profile_id
         description: 'The ID of the profile.'
         required: true
-        example: eum
+        example: doloremque
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      profile_id: eum
+      profile_id: doloremque
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

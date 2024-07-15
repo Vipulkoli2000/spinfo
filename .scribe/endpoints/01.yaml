@@ -69,13 +69,13 @@ endpoints:
         name: id
         description: 'The ID of the profile.'
         required: true
-        example: necessitatibus
+        example: sed
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: necessitatibus
+      id: sed
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -122,13 +122,13 @@ endpoints:
         name: id
         description: 'The ID of the profile.'
         required: true
-        example: vel
+        example: eligendi
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: vel
+      id: eligendi
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -136,7 +136,7 @@ endpoints:
         name: name
         description: 'The name of the user.'
         required: false
-        example: eligendi
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -145,7 +145,7 @@ endpoints:
         name: mobile
         description: 'The mobile number of the user.'
         required: false
-        example: aut
+        example: accusamus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -154,7 +154,7 @@ endpoints:
         name: pan
         description: 'The pan number of the user.'
         required: false
-        example: provident
+        example: dignissimos
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -163,7 +163,7 @@ endpoints:
         name: address_1
         description: 'The address_1 of the user.'
         required: false
-        example: ipsa
+        example: perferendis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -172,7 +172,7 @@ endpoints:
         name: address_2
         description: 'The address_1 of the user.'
         required: false
-        example: doloribus
+        example: nobis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -181,7 +181,7 @@ endpoints:
         name: city
         description: 'The city of the user.'
         required: false
-        example: omnis
+        example: suscipit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -190,7 +190,7 @@ endpoints:
         name: state
         description: 'The state of the user.'
         required: false
-        example: excepturi
+        example: consequatur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -199,7 +199,7 @@ endpoints:
         name: pincode
         description: 'The pincode of the user.'
         required: false
-        example: quia
+        example: deserunt
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -208,7 +208,7 @@ endpoints:
         name: bank_name
         description: 'The bank name of the user.'
         required: false
-        example: fuga
+        example: eaque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -217,7 +217,7 @@ endpoints:
         name: account_name
         description: 'The account name of the user.'
         required: false
-        example: dignissimos
+        example: deleniti
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -226,7 +226,7 @@ endpoints:
         name: account_no
         description: 'The account number of the user.'
         required: false
-        example: culpa
+        example: fuga
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -235,7 +235,7 @@ endpoints:
         name: ifsc
         description: 'The ifsc number of the user.'
         required: false
-        example: sit
+        example: ea
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -244,7 +244,7 @@ endpoints:
         name: business_name
         description: 'The business_name of the user.'
         required: false
-        example: cum
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -253,28 +253,80 @@ endpoints:
         name: gstin
         description: 'The gstin of the user.'
         required: false
-        example: eos
+        example: dolores
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: eligendi
-      mobile: aut
-      pan: provident
-      address_1: ipsa
-      address_2: doloribus
-      city: omnis
-      state: excepturi
-      pincode: quia
-      bank_name: fuga
-      account_name: dignissimos
-      account_no: culpa
-      ifsc: sit
-      business_name: cum
-      gstin: eos
+      name: quia
+      mobile: accusamus
+      pan: dignissimos
+      address_1: perferendis
+      address_2: nobis
+      city: suscipit
+      state: consequatur
+      pincode: deserunt
+      bank_name: eaque
+      account_name: deleniti
+      account_no: fuga
+      ifsc: ea
+      business_name: ut
+      gstin: dolores
     fileParameters: []
     responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/profiles/get_profiles/{parent_id}'
+    metadata:
+      groupName: 'Profile Management'
+      groupDescription: |-
+
+        API for Managing Profile data
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer '
+    urlParameters:
+      parent_id:
+        name: parent_id
+        description: 'The ID of the parent.'
+        required: true
+        example: commodi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      parent_id: commodi
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null
