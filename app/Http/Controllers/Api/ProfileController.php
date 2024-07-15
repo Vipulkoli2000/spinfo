@@ -38,7 +38,7 @@ class ProfileController extends BaseController
       public function getProfiles(string $id): JsonResponse
       {
          // $user = Auth::user();
-          $profile = Profile::where('parent_id',$id)->get();
+          $profile = Profile::where('parent_id',$id)->whereNotNull('profile_no')->get();
           return $this->sendResponse(['Profiles'=>ProfileResource::collection($profile)], " Profiles Retrived successfully");
       }
 
