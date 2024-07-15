@@ -111,15 +111,20 @@ class ProfileController extends BaseController
             $profile->ifsc = $request->input('ifsc');
             $profile->business_name = $request->input('business_name');
             $profile->gstin = $request->input('gstin');
-            $profile->pan_verified = $request->input('pan_verified');
-            $profile->bank_verified = $request->input('bank_verified');
-            $profile->gstin_verified = $request->input('gstin_verified');
+            if($request->input('pan_verified')){
+                $profile->pan_verified = $request->input('pan_verified');
+            }
+            if($request->input('bank_verified')){
+                $profile->bank_verified = $request->input('bank_verified');
+            }
+            if($request->input('gstin_verified')){
+                $profile->gstin_verified = $request->input('gstin_verified');
+            }
             $profile->save();
     
             return $this->sendResponse(['Profile'=>new ProfileResource($profile)], 'Profile updated successfully.');
     
         }
-
 
 
     }
