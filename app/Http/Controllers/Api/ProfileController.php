@@ -39,7 +39,7 @@ class ProfileController extends BaseController
       {
          // $user = Auth::user();
           $profile = Profile::where('parent_id',$id)->get();
-          return $this->sendResponse(['ProfileList'=>ProfileResource::collection($profile)], "All Profiles Retrived successfully");
+          return $this->sendResponse(['Profiles'=>ProfileResource::collection($profile)], "All Profiles Retrived successfully");
       }
 
 
