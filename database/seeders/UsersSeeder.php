@@ -25,15 +25,15 @@ class UsersSeeder extends Seeder
         ]);
 
         $user = User::create([
-            'name' => 'Ganesh',
-            'email' => 'ganesh@gmail.com',
+            'name' => 'Spinfo',
+            'email' => 'spinfo@gmail.com',
             'password' => bcrypt('abcd123'), 
         ]);
 
         $memberUser = Profile::create([
             'profile_no' => ProfileNumberService::generateProfileNumber(),
             'user_id' => 2,
-            'name'=>'Ganesh',
+            'name'=>'Spinfo',
             'registration_date' => Carbon::now()->format('Y-m-d'),
             'expiry_date' => Carbon::parse(Carbon::now()->format('Y-m-d'))
             ->addYear()

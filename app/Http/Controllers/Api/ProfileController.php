@@ -32,6 +32,16 @@ class ProfileController extends BaseController
         return $this->sendResponse(['ProfileList'=>ProfileResource::collection($profile)], "All Profiles Retrived successfully");
     }
 
+      /*
+       * All Profile of Level 1
+       */
+      public function getProfiles(string $id): JsonResponse
+      {
+         // $user = Auth::user();
+          $profile = Profile::where('parent_id',$id)->get();
+          return $this->sendResponse(['ProfileList'=>ProfileResource::collection($profile)], "All Profiles Retrived successfully");
+      }
+
 
      /**
      *  Show Profile

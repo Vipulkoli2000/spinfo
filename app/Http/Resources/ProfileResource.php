@@ -38,7 +38,7 @@ class ProfileResource extends JsonResource
             'bank_verified' => $this->bank_verified,
             'business_name' => $this->business_name,
             'gstin' => $this->gstin,
-            'gstin_verified' => $this->gstin_verified,
+            'gstin_verified' => $this->gstin_verified ? true : false,
             'direct_count' => $this->direct_count,
             'level_1' => $this->level_1,
             'level_2' => $this->level_2,
