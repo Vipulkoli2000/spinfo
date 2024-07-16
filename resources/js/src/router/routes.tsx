@@ -12,7 +12,7 @@ const routes = [
     // dashboard
     {
         path: '/',
-        element: <Index />,
+        element: <LoginBoxed />,
         layout: 'default',
     },
     {
