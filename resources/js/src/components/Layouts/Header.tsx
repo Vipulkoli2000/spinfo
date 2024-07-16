@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, useLocation } from 'react-router-dom';
@@ -188,13 +189,13 @@ const Header = () => {
                                 </svg>
                             </button>
                         </div>
-                        {User?.profile?.profile_no === null && (
+                        {/* {User?.profile?.profile_no === null && (
                             <div className="dropdown shrink-0 flex">
                                 <button type="button" className="btn btn-primary btn-sm ml-auto" onClick={callapi}>
                                     Make payment
                                 </button>
                             </div>
-                        )}
+                        )} */}
                         <div className="dropdown shrink-0 flex">
                             <Dropdown
                                 offset={[0, 8]}

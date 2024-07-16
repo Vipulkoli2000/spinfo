@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { IRootState } from '../../store';
-import { setPageTitle } from '../../store/themeConfigSlice';
 import axios from 'axios';
 import { PhoneInput } from 'react-international-phone';
-import 'react-international-phone/style.css'; // Define the validation schema using Zod
+import 'react-international-phone/style.css';
 import { Toaster, toast } from 'sonner';
+import { IRootState } from '../../store';
+import { setPageTitle } from '../../store/themeConfigSlice';
+
 const registerSchema = z.object({
     name: z.string().min(1, 'Name is required'),
     email: z.string().email('Invalid email address').min(1, 'Email is required'),
@@ -20,8 +21,6 @@ const registerSchema = z.object({
         .min(1, 'Pan is required')
         .regex(/^[a-zA-Z]{5}([0-9]){4}([a-zA-Z0-9]){1}?$/),
     password_confirmation: z.string().min(1, 'Password confirmation is required'),
-    parent_id: z.string().min(1, 'Parent Id is required'),
-    ref_id: z.string().min(1, 'Ref Id is required'),
 });
 
 type LoginFormInputs = z.infer<typeof registerSchema>;
@@ -31,7 +30,9 @@ const RegisterBoaxed = () => {
     const [phone, setPhone] = useState<Number | null>(null);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { id, refid } = useParams();
     const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
+
     useEffect(() => {
         dispatch(setPageTitle('Register Boxed'));
     }, [dispatch]);
@@ -65,11 +66,12 @@ const RegisterBoaxed = () => {
     };
 
     const onSubmit = (data: LoginFormInputs) => {
-        // You can handle the form submission here, for example:
         if (data.password !== data.password_confirmation) {
             toast.warning('Passwords do not match');
             return;
         }
+        data.parent_id = id;
+        data.ref_id = refid;
         data.mobile = data.mobile.replace(' ', '');
         data.mobile = data.mobile.replace('-', '');
         console.log(data);
@@ -84,7 +86,7 @@ const RegisterBoaxed = () => {
                     <p className="mb-7">Enter your email and password to Register</p>
                     <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
                         <div>
-                            <label htmlFor="email">Name</label>
+                            <label htmlFor="name">Name</label>
                             <input id="name" type="text" {...register('name')} className="form-input" placeholder="Enter Name" />
                             {errors.name && <span className="text-red-600">{errors.name.message}</span>}
                         </div>
@@ -96,15 +98,13 @@ const RegisterBoaxed = () => {
                         <div>
                             <label htmlFor="mobile">Mobile</label>
                             <PhoneInput
-                                inputStyle={
-                                    {
-                                        width: '100%',
-                                        borderRadius: '5px',
-                                        padding: '10px',
-                                        fontSize: '16px',
-                                        color: '#000',
-                                    } as React.CSSProperties
-                                }
+                                inputStyle={{
+                                    width: '100%',
+                                    borderRadius: '5px',
+                                    padding: '10px',
+                                    fontSize: '16px',
+                                    color: '#000',
+                                }}
                                 defaultCountry="in"
                                 {...register('mobile')}
                                 className="form-input"
@@ -127,16 +127,6 @@ const RegisterBoaxed = () => {
                             <input id="password_confirmation" type="password" {...register('password_confirmation')} className="form-input" placeholder="Enter Password Confirmation" />
                             {errors.password_confirmation && <span className="text-red-600">{errors.password_confirmation.message}</span>}
                         </div>
-                        <div>
-                            <label htmlFor="parent_id">Parent Id</label>
-                            <input id="parent_id" type="text" {...register('parent_id')} className="form-input" placeholder="Enter Parent Id" />
-                            {errors.parent_id && <span className="text-red-600">{errors.parent_id.message}</span>}
-                        </div>
-                        <div>
-                            <label htmlFor="ref_id">Ref Id</label>
-                            <input id="ref_id" type="text" {...register('ref_id')} className="form-input" placeholder="Enter Ref Id" />
-                            {errors.ref_id && <span className="text-red-600">{errors.ref_id.message}</span>}
-                        </div>
 
                         <button type="submit" className="btn btn-primary w-full">
                             SIGN UP
@@ -144,7 +134,7 @@ const RegisterBoaxed = () => {
                     </form>
 
                     <p className="text-center mt-8">
-                        Already have an account ?
+                        Already have an account?
                         <Link to="/login" className="font-bold text-primary hover:underline ltr:ml-1 rtl:mr-1">
                             Sign In
                         </Link>

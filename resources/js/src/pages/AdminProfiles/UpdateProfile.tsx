@@ -29,6 +29,9 @@ const registerSchema = z.object({
     ifsc: z.string().min(1, 'Ifsc is required'),
     business_name: z.string().min(1, 'Business Name is required'),
     gstin: z.string().min(1, 'Gstin is required'),
+    gstin_verified: z.boolean().optional(),
+    bank_verified: z.boolean().optional(),
+    pan_verified: z.boolean().optional(),
 });
 
 type LoginFormInputs = z.infer<typeof registerSchema>;
@@ -103,6 +106,9 @@ const UpdateProfile = () => {
                 setValue('ifsc', response?.data?.data?.profile?.ifsc);
                 setValue('business_name', response?.data?.data?.profile?.business_name);
                 setValue('gstin', response?.data?.data?.profile?.gstin);
+                setValue('gstin_verified', response?.data?.data?.profile?.gstin_verified);
+                setValue('bank_verified', response?.data?.data?.profile?.bank_verified);
+                setValue('pan_verified', response?.data?.data?.profile?.pan_verified);
             });
     }, [id]);
 
@@ -229,7 +235,7 @@ const UpdateProfile = () => {
                                 <label htmlFor="Bank" className="font-bold text-[20px] mb-6">
                                     Bank Details
                                 </label>
-                                <input type="checkbox" name="bank_verified" id="bank_verified" className="mb-4 rounded-md" {...register('bank_verified')} placeholder="Enter Bank Details" />
+                                <input type="checkbox" name="bank_verified" id="bank_verified" className="mb-6 rounded-md" {...register('bank_verified')} placeholder="Enter Bank Details" />
                             </div>
                             {/* <label htmlFor="Bank" className="font-bold text-[20px] mb-6">
                                 Bank Details
@@ -262,7 +268,10 @@ const UpdateProfile = () => {
                                 {errors.business_name && <span className="text-red-600">{errors.business_name.message}</span>}
                             </div>
                             <div className="w-full flex flex-col justify-center">
-                                <label htmlFor="gstin">Gstin</label>
+                                <div className="flex items-center gap-2">
+                                    <label htmlFor="gstin">Gstin</label>
+                                    <input id="gstin" type="checkbox" {...register('gstin_verified')} className="mb-1" placeholder="Enter Gstin" />
+                                </div>
                                 <input id="gstin" type="text" {...register('gstin')} className="form-input" placeholder="Enter Gstin" />
                                 {errors.gstin && <span className="text-red-600">{errors.gstin.message}</span>}
                             </div>
@@ -270,7 +279,7 @@ const UpdateProfile = () => {
                     </div>
                     <div className="w-full flex flex-col justify-end col-span-2">
                         <button type="submit" className="btn btn-primary  self-end">
-                            SIGN UP
+                            Update Profile
                         </button>
                     </div>
                 </form>

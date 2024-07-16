@@ -25,7 +25,7 @@ class UserController extends BaseController
     /**
      * Register User
      */
-    public function register(Request $request): JsonResponse
+    public function register(Request $request, string $parent_id, string $ref_id): JsonResponse
     {
         $validator = Validator::make($request->all(), [
              'name'=>'required|string|max:255',

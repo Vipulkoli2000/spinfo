@@ -23,7 +23,7 @@ use App\Http\Controllers\Api\ProfileController;
 // });
 
 
-Route::post('/register', [UserController::class, 'register']);
+Route::post('/register/{parent_id}/{ref_id}', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 
 Route::group(['middleware'=>['auth:sanctum']], function(){

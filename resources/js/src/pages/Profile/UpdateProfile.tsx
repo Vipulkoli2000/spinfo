@@ -49,6 +49,9 @@ const UpdateProfile = () => {
         ifsc: string;
         business_name: string;
         gstin: string;
+        pan_verified: boolean;
+        bank_verified: boolean;
+        gstin_verified: boolean;
     }
     const User = JSON.parse(localStorage.getItem('user') as string);
     console.log(User);
@@ -183,7 +186,15 @@ const UpdateProfile = () => {
                             </div>
                             <div className="w-full flex flex-col justify-center">
                                 <label htmlFor="pan">Pan</label>
-                                <input id="pan" type="text" {...register('pan')} className="form-input" placeholder="Enter Pan" />
+                                <input
+                                    id="pan"
+                                    style={defaultData.pan_verified === true ? { backgroundColor: '#848482' } : { backgroundColor: 'white' }}
+                                    type="text"
+                                    disabled={defaultData.pan_verified === true ? true : false}
+                                    {...register('pan')}
+                                    className="form-input"
+                                    placeholder="Enter Pan"
+                                />
                                 {errors.pan && <span className="text-red-600">{errors.pan.message}</span>}
                             </div>
                             <div className="w-full flex flex-col justify-center">
@@ -223,39 +234,87 @@ const UpdateProfile = () => {
                         <div className="w-full grid grid-cols-2 gap-4 justify-items-center mb-[50px]  col-span-2">
                             <div className="w-full flex flex-col justify-center">
                                 <label htmlFor="bank_name">Bank Name</label>
-                                <input id="bank_name" type="text" {...register('bank_name')} className="form-input" placeholder="Enter Bank Name" />
+                                <input
+                                    style={defaultData.bank_verified === true ? { backgroundColor: '#848482' } : { backgroundColor: 'white' }}
+                                    type="text"
+                                    disabled={defaultData.bank_verified === true ? true : false}
+                                    id="bank_name"
+                                    {...register('bank_name')}
+                                    className="form-input"
+                                    placeholder="Enter Bank Name"
+                                />
                                 {errors.bank_name && <span className="text-red-600">{errors.bank_name.message}</span>}
                             </div>
                             <div className="w-full flex flex-col justify-center">
                                 <label htmlFor="account_name">Account Name</label>
-                                <input id="account_name" type="text" {...register('account_name')} className="form-input" placeholder="Enter Account Name" />
+                                <input
+                                    style={defaultData.bank_verified === true ? { backgroundColor: '#848482' } : { backgroundColor: 'white' }}
+                                    disabled={defaultData.bank_verified === true ? true : false}
+                                    id="account_name"
+                                    type="text"
+                                    {...register('account_name')}
+                                    className="form-input"
+                                    placeholder="Enter Account Name"
+                                />
                                 {errors.account_name && <span className="text-red-600">{errors.account_name.message}</span>}
                             </div>
                             <div className="w-full flex flex-col justify-center">
                                 <label htmlFor="account_no">Account No</label>
-                                <input id="account_no" type="text" {...register('account_no')} className="form-input" placeholder="Enter Account No" />
+                                <input
+                                    style={defaultData.bank_verified === true ? { backgroundColor: '#848482' } : { backgroundColor: 'white' }}
+                                    disabled={defaultData.bank_verified === true ? true : false}
+                                    id="account_no"
+                                    type="text"
+                                    {...register('account_no')}
+                                    className="form-input"
+                                    placeholder="Enter Account No"
+                                />
                                 {errors.account_no && <span className="text-red-600">{errors.account_no.message}</span>}
                             </div>
                             <div className="w-full flex flex-col justify-center">
                                 <label htmlFor="ifsc">Ifsc</label>
-                                <input id="ifsc" type="text" {...register('ifsc')} className="form-input" placeholder="Enter Ifsc" />
+                                <input
+                                    style={defaultData.bank_verified === true ? { backgroundColor: '#848482' } : { backgroundColor: 'white' }}
+                                    disabled={defaultData.bank_verified === true ? true : false}
+                                    id="ifsc"
+                                    type="text"
+                                    {...register('ifsc')}
+                                    className="form-input"
+                                    placeholder="Enter Ifsc"
+                                />
                                 {errors.ifsc && <span className="text-red-600">{errors.ifsc.message}</span>}
                             </div>
                             <div className="w-full flex flex-col justify-center">
                                 <label htmlFor="business_name">Business Name</label>
-                                <input id="business_name" type="text" {...register('business_name')} className="form-input" placeholder="Enter Business Name" />
+                                <input
+                                    style={defaultData.gstin_verified === true ? { backgroundColor: '#848482' } : { backgroundColor: 'white' }}
+                                    disabled={defaultData.gstin_verified === true ? true : false}
+                                    id="business_name"
+                                    type="text"
+                                    {...register('business_name')}
+                                    className="form-input"
+                                    placeholder="Enter Business Name"
+                                />
                                 {errors.business_name && <span className="text-red-600">{errors.business_name.message}</span>}
                             </div>
                             <div className="w-full flex flex-col justify-center">
                                 <label htmlFor="gstin">Gstin</label>
-                                <input id="gstin" type="text" {...register('gstin')} className="form-input" placeholder="Enter Gstin" />
+                                <input
+                                    style={defaultData.gstin_verified === true ? { backgroundColor: '#848482' } : { backgroundColor: 'white' }}
+                                    disabled={defaultData.gstin_verified === true ? true : false}
+                                    id="gstin"
+                                    type="text"
+                                    {...register('gstin')}
+                                    className="form-input"
+                                    placeholder="Enter Gstin"
+                                />
                                 {errors.gstin && <span className="text-red-600">{errors.gstin.message}</span>}
                             </div>
                         </div>
                     </div>
                     <div className="w-full flex flex-col justify-end col-span-2">
                         <button type="submit" className="btn btn-primary  self-end">
-                            SIGN UP
+                            Update Profile
                         </button>
                     </div>
                 </form>
